@@ -86,38 +86,120 @@ body {
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
-/* Floating icons */
-.floating-icon {
+/* --- CREATIVE 'BOOKING BUS' FLOATING ACTION BUTTON --- */
+.fab-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 1.5rem;
+    z-index: 40;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.fab-trigger {
     width: 60px;
     height: 60px;
+    border-radius: 50%;
+    background-color: #FACC15; /* yellow-400 */
+    color: #1E3A8A; /* blue-900 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem; /* Slightly adjusted icon size */
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    animation: pulse 2.5s infinite;
+    position: relative; /* Needed for the main tooltip */
+}
+
+/* New hover animation for the bus */
+.fab-container:hover .fab-trigger {
+    animation: bus-shake 0.8s cubic-bezier(.36,.07,.19,.97) both, pulse 2.5s paused;
+    transform: scale(1.1);
+}
+
+.fab-options {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin: 0 0 1rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) scale(0.9);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fab-container:hover .fab-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.fab-action {
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: white;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    border: 3px solid #FACC15;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 0.75rem;
     transition: all 0.3s ease;
-    animation: pulse 2.5s infinite;
+    position: relative;
 }
 
-.floating-icon:hover {
-    transform: scale(1.15) rotate(10deg);
-    animation-play-state: paused;
+.fab-action:nth-child(1) { background-color: #25D366; transition-delay: 0.1s; } /* WhatsApp */
+.fab-action:nth-child(2) { background-color: #3B82F6; transition-delay: 0.05s; } /* Phone */
+
+.fab-action:hover {
+    transform: scale(1.15);
 }
 
+.fab-tooltip {
+    position: absolute;
+    right: 120%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #111827; /* A darker, sleeker tooltip background */
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.fab-action:hover .fab-tooltip,
+.fab-trigger.group:hover .main-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Keyframe for the bus shake animation */
+@keyframes bus-shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0) scale(1.1) rotate(-1deg); }
+  20%, 80% { transform: translate3d(2px, 0, 0) scale(1.1) rotate(2deg); }
+  30%, 50%, 70% { transform: translate3d(-3px, 0, 0) scale(1.1) rotate(-3deg); }
+  40%, 60% { transform: translate3d(3px, 0, 0) scale(1.1) rotate(3deg); }
+}
+
+/* Re-using your pulse animation */
 @keyframes pulse {
     0% {
-        transform: scale(0.95);
         box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.7);
     }
     70% {
-        transform: scale(1);
         box-shadow: 0 0 0 12px rgba(250, 204, 21, 0);
     }
     100% {
-        transform: scale(0.95);
         box-shadow: 0 0 0 0 rgba(250, 204, 21, 0);
     }
 }
