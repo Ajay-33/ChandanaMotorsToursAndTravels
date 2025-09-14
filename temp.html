@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMT Travels - Your Journey, Our Priority</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-blue-900">
+    <nav id="navbar" class="bg-blue-900 mx-auto flex justify-between items-center py-4 px-6 sticky top-0 z-50 text-white transition-all duration-300">
+        <div>
+            <img src="images/logos/logo2.png" alt="CMT Travels Logo" class="h-10 w-auto sm:h-12 md:ml-6 object-contain cursor-pointer">
+        </div>
+        <div class="flex items-center">
+            <ul class="hidden md:flex md:mr-6 space-x-8 text-lg nav-links relative">
+                <li><a href="#home" class="nav-link hover:text-yellow-300 transition-colors duration-300">Home<span class="underline-span"></span></a></li>
+                <li><a href="#about" class="nav-link hover:text-yellow-300 transition-colors duration-300">About Us<span class="underline-span"></span></a></li>
+                <li><a href="#services" class="nav-link hover:text-yellow-300 transition-colors duration-300">Services<span class="underline-span"></span></a></li>
+                <li><a href="#gallery" class="nav-link hover:text-yellow-300 transition-colors duration-300">Gallery<span class="underline-span"></span></a></li>
+                <li><a href="#contact" class="nav-link hover:text-yellow-300 transition-colors duration-300">Contact Us<span class="underline-span"></span></a></li>
+            </ul>
+            <button id="mobile-menu-button" class="md:hidden bg-blue-600 p-2 rounded hover:bg-blue-700 transition duration-300 flex items-center justify-center">
+                <i class="fas fa-bars text-white h-6 w-6"></i>
+            </button>
+        </div>
+        <ul id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-blue-900 text-white py-6 flex-col items-center space-y-4 md:hidden border-t border-yellow-300 shadow-lg">
+            <li><a href="#home" class="nav-link hover:text-yellow-300 transition-colors duration-300 text-lg">Home<span class="underline-span"></span></a></li>
+            <li><a href="#about" class="nav-link hover:text-yellow-300 transition-colors duration-300 text-lg">About Us<span class="underline-span"></span></a></li>
+            <li><a href="#services" class="nav-link hover:text-yellow-300 transition-colors duration-300 text-lg">Services<span class="underline-span"></span></a></li>
+            <li><a href="#gallery" class="nav-link hover:text-yellow-300 transition-colors duration-300 text-lg">Gallery<span class="underline-span"></span></a></li>
+            <li><a href="#contact" class="nav-link hover:text-yellow-300 transition-colors duration-300 text-lg">Contact Us<span class="underline-span"></span></a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home" class="min-h-dynamic bg-gradient-to-br from-blue-800 via-blue-900 to-indigo-800 text-white">
+            <div id="particles-js"></div>
+            <div class="content-above-particles text-center px-6 md:px-12 max-w-4xl mx-auto">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 fade-in">
+                    Welcome to <span class="text-yellow-400">CMT Travels</span>
+                </h1>
+                <p class="text-xl sm:text-2xl md:text-3xl mb-8 fade-in" style="transition-delay: 0.2s">"Your journey,
+                    our priority."</p>
+                <a href="#contact" class="inline-block bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg shadow-lg hover:bg-yellow-500 hover:scale-105 transition duration-300 font-bold text-lg fade-in" style="transition-delay: 0.4s">Book Your Adventure</a>
+            </div>
+        </section>
+
+        <section id="about" class="min-h-dynamic py-20 px-6 md:px-12 bg-gradient-to-br from-blue-800 via-blue-900 to-indigo-800 text-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="space-y-8 text-center lg:text-left fade-in">
+                        <div>
+                            <h2 class="text-4xl sm:text-5xl font-bold text-yellow-400 mb-4">Crafting Unforgettable
+                                Journeys</h2>
+                            <p class="text-xl text-gray-300">Our Commitment to Excellence</p>
+                        </div>
+                        <p class="text-lg text-gray-200 leading-relaxed">
+                            At <span class="font-bold text-yellow-400">CMT Travels</span>, we do more than just get you
+                            from point A to B; we provide luxurious and affordable travel solutions designed for your
+                            comfort and safety. Whether you're planning a family vacation, a honeymoon, or a corporate
+                            event, we ensure a seamless and memorable experience. Let us handle the details while you
+                            create lasting memories.
+                        </p>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 pt-6">
+                            <div class="text-center stat-item">
+                                <div class="text-yellow-400 text-4xl mb-2"><i class="fas fa-star"></i></div>
+                                <p class="text-3xl font-bold">5,000+</p>
+                                <p class="text-gray-400">Happy Travelers</p>
+                            </div>
+                            <div class="text-center stat-item">
+                                <div class="text-yellow-400 text-4xl mb-2"><i class="fas fa-road"></i></div>
+                                <p class="text-3xl font-bold">1M+</p>
+                                <p class="text-gray-400">Kilometers Traveled</p>
+                            </div>
+                            <div class="text-center stat-item col-span-2 sm:col-span-1">
+                                <div class="text-yellow-400 text-4xl mb-2"><i class="fas fa-calendar-alt"></i></div>
+                                <p class="text-3xl font-bold">10+</p>
+                                <p class="text-gray-400">Years of Service</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative h-96 lg:h-[500px] about-image-stack fade-in" style="transition-delay: 0.2s;">
+                        <img src="images/buses/Type2.jpeg" alt="CMT Travels Luxury Bus" class="absolute top-0 left-0 w-4/5 h-auto object-cover rounded-xl shadow-2xl transform -rotate-6 transition-transform duration-500 ease-in-out">
+                        <img src="images/buses/Interior.jpeg" alt="Comfortable Bus Interior" class="absolute bottom-0 right-0 w-4/5 h-auto object-cover rounded-xl shadow-2xl border-4 border-yellow-400 transform rotate-4 transition-transform duration-500 ease-in-out">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="min-h-dynamic py-20 px-6 md:px-12 bg-gradient-to-br from-blue-800 via-blue-900 to-indigo-800 text-white">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-4xl sm:text-5xl font-bold text-yellow-400 text-center mb-4 fade-in">Our Premium Services
+                </h2>
+                <p class="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto fade-in">Experience the difference
+                    with our exceptional travel solutions designed for your comfort and convenience</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
+                    <div class="service-card group bg-blue-800 rounded-xl p-8 shadow-2xl hover:bg-blue-700 transition-all duration-500 fade-in transform hover:-translate-y-2">
+                        <div class="flex items-start mb-6">
+                            <div class="bg-yellow-400 text-blue-900 p-4 rounded-xl mr-6 transform group-hover:scale-110 transition-transform duration-500">
+                                <i class="fas fa-bus fa-2x"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-semibold mb-2 text-yellow-400">Luxury Bus Tours</h3>
+                                <div class="flex items-center">
+                                    <div class="flex text-yellow-400 mr-2">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-300 text-sm">4.9/5 (128 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-lg text-gray-200 mb-6">Explore destinations in ultimate comfort with our premium
+                            fleet of luxury buses, equipped with modern amenities for an unforgettable travel
+                            experience.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-gray-300"><i class="fas fa-check-circle text-yellow-400 mr-3"></i><span>Air-conditioned coaches with climate control</span></li>
+                            <li class="flex items-center text-gray-300"><i class="fas fa-check-circle text-yellow-400 mr-3"></i><span>On-board entertainment systems</span></li>
+                            <li class="flex items-center text-gray-300"><i class="fas fa-check-circle text-yellow-400 mr-3"></i><span>Comfortable reclining seats with extra legroom</span></li>
+                        </ul>
+                        <div class="flex justify-between items-center">
+                            <a href="#contact" class="group bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-semibold flex items-center transform transition duration-300 ease-in-out hover:bg-yellow-500 hover:scale-105">
+                                Book Now
+                                <i class="fas fa-arrow-right ml-2 transition-transform duration-300 ease-in-out group-hover:translate-x-1"></i>
+                            </a>
+                            <span class="text-yellow-400 font-bold text-xl">Standard</span>
+                        </div>
+                    </div>
+
+                    <div class="service-card group bg-blue-800 rounded-xl p-8 shadow-2xl hover:bg-blue-700 transition-all duration-500 fade-in transform hover:-translate-y-2" style="transition-delay: 0.1s;">
+                        <div class="flex items-start mb-6">
+                            <div class="bg-yellow-400 text-blue-900 p-4 rounded-xl mr-6 transform group-hover:scale-110 transition-transform duration-500">
+                                <i class="fas fa-map-marked-alt fa-2x"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-semibold mb-2 text-yellow-400">Customized Itineraries</h3>
+                                <div class="flex items-center">
+                                    <div class="flex text-yellow-400 mr-2">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="text-gray-300 text-sm">4.7/5 (86 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-lg text-gray-200 mb-6">Tailored travel plans designed specifically for your
+                            group's needs, whether corporate events, weddings, or family vacations.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-gray-300"><i class="fas fa-check-circle text-yellow-400 mr-3"></i><span>Personalized route planning</span></li>
+                            <li class="flex items-center text-gray-300"><i class="fas fa-check-circle text-yellow-400 mr-3"></i><span>Multiple destination options</span></li>
+                            <li class="flex items-center text-gray-300"><i class="fas fa-check-circle text-yellow-400 mr-3"></i><span>Flexible scheduling</span></li>
+                        </ul>
+                        <div class="flex justify-between items-center">
+                            <a href="#contact" class="group bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-semibold flex items-center transform transition duration-300 ease-in-out hover:bg-yellow-500 hover:scale-105">
+                                Plan Trip
+                                <i class="fas fa-arrow-right ml-2 transition-transform duration-300 ease-in-out group-hover:translate-x-1"></i>
+                            </a>
+                            <span class="text-yellow-400 font-bold text-xl">Custom Quote</span>
+                        </div>
+                    </div>
+
+                    <div class="service-card group bg-blue-800 rounded-xl p-8 shadow-2xl hover:bg-blue-700 transition-all duration-500 fade-in transform hover:-translate-y-2" style="transition-delay: 0.2s;">
+                        <div class="flex items-start mb-6">
+                            <div class="bg-yellow-400 text-blue-900 p-4 rounded-xl mr-6 transform group-hover:scale-110 transition-transform duration-500">
+                                <i class="fas fa-clock fa-2x"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-semibold mb-2 text-yellow-400">Punctual Service</h3>
+                                <div class="flex items-center">
+                                    <div class="flex text-yellow-400 mr-2">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-300 text-sm">4.8/5 (204 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-lg text-gray-200 mb-6">We understand the value of your time. Our commitment to
+                            punctuality ensures your travel plans proceed smoothly without delays.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-gray-300"><i class="fas fa-check-circle text-yellow-400 mr-3"></i><span>99% on-time arrival record</span></li>
+                            <li class="flex items-center text-gray-300"><i class="fas fa-check-circle text-yellow-400 mr-3"></i><span>Real-time tracking updates</span></li>
+                            <li class="flex items-center text-gray-300"><i class="fas fa-check-circle text-yellow-400 mr-3"></i><span>24/7 customer support</span></li>
+                        </ul>
+                        <div class="flex justify-between items-center">
+                            <a href="#contact" class="group bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-semibold flex items-center transform transition duration-300 ease-in-out hover:bg-yellow-500 hover:scale-105">
+                                Schedule
+                                <i class="fas fa-arrow-right ml-2 transition-transform duration-300 ease-in-out group-hover:translate-x-1"></i>
+                            </a>
+                            <span class="text-yellow-400 font-bold text-xl">No extra charge</span>
+                        </div>
+                    </div>
+
+                    <div class="service-card group bg-blue-800 rounded-xl p-8 shadow-2xl hover:bg-blue-700 transition-all duration-500 fade-in transform hover:-translate-y-2" style="transition-delay: 0.3s;">
+                        <div class="flex items-start mb-6">
+                            <div class="bg-yellow-400 text-blue-900 p-4 rounded-xl mr-6 transform group-hover:scale-110 transition-transform duration-500">
+                                <i class="fas fa-handshake fa-2x"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-semibold mb-2 text-yellow-400">Premium Experience</h3>
+                                <div class="flex items-center">
+                                    <div class="flex text-yellow-400 mr-2">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-gray-300 text-sm">4.9/5 (312 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-lg text-gray-200 mb-6">Your satisfaction is our top priority. From booking to
+                            destination, we ensure a seamless and enjoyable travel experience.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center text-gray-300"><i class="fas fa-check-circle text-yellow-400 mr-3"></i><span>Trained professional drivers</span></li>
+                            <li class="flex items-center text-gray-300"><i class="fas fa-check-circle text-yellow-400 mr-3"></i><span>Complimentary amenities</span></li>
+                            <li class="flex items-center text-gray-300"><i class="fas fa-check-circle text-yellow-400 mr-3"></i><span>Post-trip feedback system</span></li>
+                        </ul>
+                        <div class="flex justify-between items-center">
+                            <a href="#contact" class="group bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-semibold flex items-center transform transition duration-300 ease-in-out hover:bg-yellow-500 hover:scale-105">
+                                Experience
+                                <i class="fas fa-arrow-right ml-2 transition-transform duration-300 ease-in-out group-hover:translate-x-1"></i>
+                            </a>
+                            <span class="text-yellow-400 font-bold text-xl">Included</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-800 rounded-2xl p-8 md:p-12 mb-16 fade-in">
+                    <h3 class="text-3xl font-bold text-yellow-400 text-center mb-12">What Our Customers Say</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="bg-blue-900 p-6 rounded-xl transform transition-transform duration-500 hover:-translate-y-2">
+                            <div class="flex text-yellow-400 text-xl mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="text-gray-300 italic mb-6">"CMT Travels made our company outing unforgettable. The buses were clean, comfortable, and the drivers were professional. Will definitely use again!"</p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-blue-900 font-bold mr-4">RS</div>
+                                <div>
+                                    <p class="font-semibold text-white">Rahul Sharma</p>
+                                    <p class="text-gray-400 text-sm">Corporate Client</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-blue-900 p-6 rounded-xl transform transition-transform duration-500 hover:-translate-y-2">
+                            <div class="flex text-yellow-400 text-xl mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="text-gray-300 italic mb-6">"We used CMT Travels for our wedding and they exceeded all expectations. Punctual, clean vehicles and courteous staff. Highly recommended!"</p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-blue-900 font-bold mr-4">PK</div>
+                                <div>
+                                    <p class="font-semibold text-white">Priya & Karthik</p>
+                                    <p class="text-gray-400 text-sm">Wedding Clients</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-blue-900 p-6 rounded-xl transform transition-transform duration-500 hover:-translate-y-2">
+                            <div class="flex text-yellow-400 text-xl mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                            <p class="text-gray-300 italic mb-6">"Regular user of CMT Travels for our pilgrimage trips. Always reliable, safe, and comfortable even on long journeys. Great service!"</p>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-blue-900 font-bold mr-4">VM</div>
+                                <div>
+                                    <p class="font-semibold text-white">Vijay Malhotra</p>
+                                    <p class="text-gray-400 text-sm">Frequent Traveler</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-10">
+                        <a href="#contact" class="inline-block bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-300">Share Your Experience</a>
+                    </div>
+                </div>
+
+                <div class="text-center fade-in">
+                    <h3 class="text-3xl font-bold text-yellow-400 mb-6">Ready to Experience Premium Travel?</h3>
+                    <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">Contact us today to book your journey or
+                        request a custom quote for your specific travel needs</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="#contact" class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-300">Get a Quote</a>
+                        <a href="tel:+919959170817" class="bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 transition-colors duration-300">Call Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="min-h-dynamic py-20 px-6 md:px-12 bg-gradient-to-br from-blue-800 via-blue-900 to-indigo-800 text-white">
+            <div class="max-w-7xl mx-auto text-center">
+                <h2 class="text-4xl sm:text-5xl font-extrabold text-yellow-400 mb-6 fade-in">Explore Our Luxury Fleet</h2>
+                <p class="text-xl text-gray-300 mb-12 fade-in">Click on any image to view it in full size and discover our premium amenities.</p>
+                <div class="swiper gallery-container fade-in">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide gallery-item">
+                            <div class="gallery-image-container">
+                                <img src="images/buses/Type1.jpeg" alt="CMT Travels Luxury Coach" class="gallery-image">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-info">
+                                        <h3 class="text-xl font-bold text-yellow-400">Premium Coach</h3>
+                                        <p class="text-gray-200">40 Seats • AC • Entertainment</p>
+                                        <button class="view-details-btn mt-3">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide gallery-item">
+                            <div class="gallery-image-container">
+                                <img src="images/buses/Type1-2.jpeg" alt="CMT Travels Executive Bus" class="gallery-image">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-info">
+                                        <h3 class="text-xl font-bold text-yellow-400">Executive Bus</h3>
+                                        <p class="text-gray-200">Luxury Seating • WiFi • Charging Ports</p>
+                                        <button class="view-details-btn mt-3">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide gallery-item">
+                            <div class="gallery-image-container">
+                                <img src="images/buses/Type1-3.jpeg" alt="CMT Travels Tour Bus" class="gallery-image">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-info">
+                                        <h3 class="text-xl font-bold text-yellow-400">Tour Bus</h3>
+                                        <p class="text-gray-200">Spacious • Comfortable • Reliable</p>
+                                        <button class="view-details-btn mt-3">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide gallery-item">
+                            <div class="gallery-image-container">
+                                <img src="images/buses/Door.jpeg" alt="CMT Travels Bus Entrance" class="gallery-image">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-info">
+                                        <h3 class="text-xl font-bold text-yellow-400">Easy Access</h3>
+                                        <p class="text-gray-200">Wide Doors • Low Steps • Safety Rails</p>
+                                        <button class="view-details-btn mt-3">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide gallery-item">
+                            <div class="gallery-image-container">
+                                <img src="images/buses/Type2.jpeg" alt="CMT Travels Modern Bus" class="gallery-image">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-info">
+                                        <h3 class="text-xl font-bold text-yellow-400">Modern Fleet</h3>
+                                        <p class="text-gray-200">2023 Models • Eco-Friendly • Smooth Ride</p>
+                                        <button class="view-details-btn mt-3">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination !bottom-0"></div>
+                    <div class="swiper-button-next custom-nav"><i class="fas fa-chevron-right"></i></div>
+                    <div class="swiper-button-prev custom-nav"><i class="fas fa-chevron-left"></i></div>
+                    <div class="swiper-scrollbar mt-8 !bg-blue-700">
+                        <div class="swiper-scrollbar-drag !bg-yellow-400"></div>
+                    </div>
+                </div>
+                <div class="mt-12 fade-in">
+                    <p class="text-lg text-gray-300 mb-6">Interested in our fleet? Contact us for more details!</p>
+                    <a href="#contact" class="inline-block bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-300">Request Fleet Information</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="min-h-dynamic py-20 px-6 md:px-12 bg-gradient-to-br from-blue-800 via-blue-900 to-indigo-800 text-white flex items-center justify-center">
+            <div class="max-w-6xl mx-auto w-full">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl sm:text-5xl font-bold text-yellow-400 mb-4 fade-in">Let's Plan Your Journey</h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto fade-in">Use our direct booking terminal to send an inquiry. We're ready to help you create an unforgettable trip.</p>
+                </div>
+                <div class="contact-terminal fade-in" style="transition-delay: 0.2s;">
+                    <div class="terminal-image">
+                        <img src="images/buses/Interior.jpeg" alt="Luxury bus interior" class="w-full h-full object-cover">
+                        <div class="terminal-image-overlay">
+                            <div>
+                                <h3 class="text-3xl font-bold text-white">CMT Travels</h3>
+                                <p class="text-yellow-400 font-semibold">Your Journey, Our Priority.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="terminal-content">
+                        <div class="terminal-header">
+                            <div class="terminal-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl text-white">Booking Inquiry</h3>
+                                <p class="text-gray-400 text-sm">Fill out the details below</p>
+                            </div>
+                        </div>
+                        <form id="contact-form" class="terminal-form">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5">
+                                <input type="text" name="firstName" id="firstName" placeholder="First Name *" required class="terminal-input">
+                                <input type="text" name="lastName" id="lastName" placeholder="Last Name" class="terminal-input">
+                            </div>
+                            <input type="email" name="email" id="email" placeholder="Email (Optional)" class="terminal-input">
+                            <input type="tel" name="phone" id="phone" placeholder="Phone Number *" required class="terminal-input">
+                            <textarea name="message" id="message" placeholder="Your Message..." rows="3" class="terminal-input"></textarea>
+                            <button type="submit" id="submit-button" class="terminal-button">
+                                <span>Submit Inquiry</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </form>
+                        <p id="response-message" class="mt-4 text-center text-base"></p>
+                        <div class="terminal-footer">
+                            <p class="text-gray-400 text-sm">Or contact us directly:</p>
+                            <div class="flex items-center gap-4">
+                                <a href="tel:+919959170817" class="terminal-contact-link"><i class="fas fa-phone-alt"></i></a>
+                                <a href="https://wa.me/919848190564?text=Hello%20CMT%20Travels" target="_blank" class="terminal-contact-link"><i class="fab fa-whatsapp"></i></a>
+                                <a href="mailto:chandanamotorstoursandtravels@gmail.com" class="terminal-contact-link"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<footer class="bg-gradient-to-b from-blue-900 to-indigo-900 text-white py-16 border-t-4 border-yellow-400 relative overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent opacity-50"></div>
+    <!-- <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-yellow-400 rounded-full opacity-10"></div> -->
+    <div class="absolute -top-20 -left-20 w-48 h-48 bg-yellow-400 rounded-full opacity-10"></div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+        <!-- Main footer content -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+            <!-- Brand/About column -->
+            <div class="space-y-6">
+                <div class="flex items-center">
+                    <img src="images/logos/logo2.png" alt="CMT Travels Logo" class="h-12 w-auto mr-3">
+                    <h3 class="text-2xl font-bold text-yellow-400">CMT Travels</h3>
+                </div>
+                <p class="text-gray-300 leading-relaxed">
+                    Providing luxury travel experiences with comfort, safety, and punctuality. Your journey is our priority since 2013.
+                </p>
+                <div class="flex space-x-4 pt-4">
+                    <a href="https://www.facebook.com/profile.php?id=100008401005192" target="_blank" class="social-icon bg-blue-700 hover:bg-blue-600">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" target="_blank" class="social-icon bg-sky-500 hover:bg-sky-400">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" target="_blank" class="social-icon bg-blue-600 hover:bg-blue-500">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://wa.me/919848190564" target="_blank" class="social-icon bg-green-500 hover:bg-green-400">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Quick Links column -->
+            <div class="space-y-6">
+                <h3 class="text-xl font-bold text-yellow-400 border-b border-yellow-400 pb-2">Quick Links</h3>
+                <ul class="space-y-3">
+                    <li><a href="#home" class="footer-link hover:text-yellow-400 transition-colors duration-300">Home</a></li>
+                    <li><a href="#about" class="footer-link hover:text-yellow-400 transition-colors duration-300">About Us</a></li>
+                    <li><a href="#services" class="footer-link hover:text-yellow-400 transition-colors duration-300">Services</a></li>
+                    <li><a href="#gallery" class="footer-link hover:text-yellow-400 transition-colors duration-300">Gallery</a></li>
+                    <li><a href="#contact" class="footer-link hover:text-yellow-400 transition-colors duration-300">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contact Info column -->
+            <div class="space-y-6">
+                <h3 class="text-xl font-bold text-yellow-400 border-b border-yellow-400 pb-2">Contact Info</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="text-yellow-400 mt-1 mr-3">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold">Call Us:</p>
+                            <div class="space-y-1 mt-1">
+                                <a href="tel:+919959170817" class="footer-link block">+91 9959170817</a>
+                                <a href="tel:+918328338811" class="footer-link block">+91 8328338811</a>
+                                <a href="tel:+919030656205" class="footer-link block">+91 9030656205</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="text-yellow-400 mt-1 mr-3">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold">Email Us:</p>
+                            <div class="space-y-1 mt-1">
+                                <a href="mailto:chandanamotorstoursandtravels@gmail.com" class="footer-link block">chandanamotorstoursandtravels@gmail.com</a>
+                                <a href="mailto:santoshdornala@gmail.com" class="footer-link block">santoshdornala@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Newsletter column -->
+            <div class="space-y-6">
+                <h3 class="text-xl font-bold text-yellow-400 border-b border-yellow-400 pb-2">Stay Updated</h3>
+                <p class="text-gray-300">Subscribe to our newsletter for special offers and travel updates.</p>
+                <form class="space-y-3">
+                    <input type="email" placeholder="Your Email" class="w-full px-4 py-3 rounded-lg bg-blue-800 border border-blue-700 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-white">
+                    <button type="submit" class="w-full bg-yellow-400 text-blue-900 font-semibold py-3 rounded-lg hover:bg-yellow-500 transition-colors duration-300">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Bottom section -->
+        <div class="pt-8 border-t border-blue-700 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p class="text-gray-400 text-sm md:text-base">&copy; 2025 CMT Travels. All Rights Reserved.</p>
+            <div class="flex space-x-6 text-sm">
+                <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors duration-300">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors duration-300">Terms of Service</a>
+                <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors duration-300">FAQ</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <div class="fixed bottom-8 right-4 sm:right-6 flex flex-col space-y-4 z-40">
+        <a href="https://wa.me/919848190564?text=Hello%20CMT%20Travels" target="_blank" class="floating-icon bg-green-500"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+919848190564" class="floating-icon bg-white"><i class="fas fa-phone-alt text-blue-900"></i></a>
+    </div>
+
+    <div id="image-modal">
+        <img id="modal-img" src="" alt="Full-size bus image">
+        <div class="modal-controls">
+            <button id="close-modal" class="modal-btn"><i class="fas fa-times"></i> Close</button>
+            <a id="download-link" href="#" download="cmt-travels-bus.jpg" class="modal-btn">
+                <i class="fas fa-download"></i> Download
+            </a>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
