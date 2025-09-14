@@ -1,3 +1,5 @@
+// script.js (CORRECTED AND FINAL VERSION)
+
 document.addEventListener("DOMContentLoaded", function () {
 
   // --- DYNAMIC CONTENT INJECTION ---
@@ -119,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // --- SMOOTH SCROLL & NAVBAR LOGIC ---
-  const allNavLinks = document.querySelectorAll('a[href^="#"]');
+  const allNavLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
   allNavLinks.forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
@@ -181,39 +183,63 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   fadeElements.forEach((element) => observer.observe(element));
 
-  // --- ENHANCED GALLERY MODAL LOGIC ---
+  // --- ENHANCED GALLERY MODAL LOGIC (FIXED) ---
   const setupGalleryModal = () => {
     const modal = document.getElementById("image-modal");
     const modalImg = document.getElementById("modal-img");
     const downloadLink = document.getElementById("download-link");
     const closeModalBtn = document.getElementById("close-modal");
-    const galleryItems = document.querySelectorAll(".gallery-item"); // Must be queried after generation
+    const galleryItems = document.querySelectorAll(".gallery-item");
+    let objectUrl = null; // This will hold the temporary URL
 
     galleryItems.forEach((item) => {
-      item.addEventListener("click", () => {
-        const imgSrc = item.querySelector("img").src;
-        const imgAlt = item.querySelector("img").alt;
-        modalImg.src = imgSrc;
-        modalImg.alt = imgAlt;
-        downloadLink.href = imgSrc;
-        downloadLink.download = `cmt-travels-${imgAlt.toLowerCase().replace(/\s+/g, "-")}.jpg`;
-        modal.classList.add("show");
-        document.body.style.overflow = "hidden";
-      });
+        item.addEventListener("click", () => {
+            const imgSrc = item.querySelector("img").src;
+            const imgAlt = item.querySelector("img").alt;
+            
+            modalImg.src = imgSrc;
+            modalImg.alt = imgAlt;
+
+            // Before creating a new link, disable the old one to prevent errors
+            downloadLink.href = '#';
+            
+            // 1. Fetch the image data from its source
+            fetch(imgSrc)
+                .then(response => response.blob()) // 2. Convert the response to a Blob
+                .then(blob => {
+                    // 3. Create a temporary, local URL for the Blob
+                    objectUrl = URL.createObjectURL(blob);
+                    
+                    // 4. Set the download link to use this secure, temporary URL
+                    downloadLink.href = objectUrl;
+                    downloadLink.download = `CMT_Travels-${imgAlt.toLowerCase().replace(/\s+/g, "-")}.jpg`;
+                })
+                .catch(e => console.error("Could not create download link:", e)); 
+
+            modal.classList.add("show");
+            document.body.style.overflow = "hidden";
+        });
     });
 
     const closeModal = () => {
-      modal.classList.remove("show");
-      document.body.style.overflow = "";
+        modal.classList.remove("show");
+        document.body.style.overflow = "";
+        
+        // --- CLEANUP LOGIC ---
+        // When the modal closes, release the temporary URL to free up browser memory
+        if (objectUrl) {
+            URL.revokeObjectURL(objectUrl);
+            objectUrl = null;
+        }
     };
 
     closeModalBtn.addEventListener("click", closeModal);
     modal.addEventListener("click", (e) => {
-      if (e.target === modal) closeModal();
+        if (e.target === modal) closeModal();
     });
 
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modal.classList.contains("show")) closeModal();
+        if (e.key === "Escape" && modal.classList.contains("show")) closeModal();
     });
   };
 
@@ -253,7 +279,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   (function () {
     // IMPORTANT: Replace with your actual EmailJS Public Key
-    emailjs.init("YOUR_PUBLIC_KEY_HERE");
+    emailjs.init(emailjsConfig.publicKey);
   })();
 
   contactForm.addEventListener("submit", function (e) {
@@ -262,9 +288,8 @@ document.addEventListener("DOMContentLoaded", function () {
     submitBtn.disabled = true;
     submitBtn.innerHTML = `<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>`;
 
-    // IMPORTANT: Replace with your actual EmailJS Service ID and Template ID
-    const serviceID = "YOUR_SERVICE_ID_HERE";
-    const templateID = "YOUR_TEMPLATE_ID_HERE";
+    const serviceID = emailjsConfig.serviceID;
+    const templateID = emailjsConfig.templateID;
 
     emailjs.sendForm(serviceID, templateID, this).then(
       () => {
