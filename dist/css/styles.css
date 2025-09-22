@@ -1888,6 +1888,12 @@ body {
   transform: scale(1.1);
 }
 
+.terminal-input.error {
+  border-color: #f87171;
+  /* red-400 */
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.2);
+}
+
 /* --- FOOTER STYLES --- */
 
 /* Kept for the ::after pseudo-element which creates the animated underline. This is not possible in Tailwind. */

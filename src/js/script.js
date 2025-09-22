@@ -276,14 +276,64 @@ document.addEventListener("DOMContentLoaded", function () {
   const contactForm = document.getElementById("contact-form");
   const responseMessage = document.getElementById("response-message");
   const submitBtn = document.getElementById("submit-button");
+  const firstNameInput = document.getElementById("firstName");
+  const phoneInput = document.getElementById("phone");
+  const emailInput = document.getElementById("email");
+  const allInputs = [firstNameInput, phoneInput, emailInput];
 
   (function () {
-    // IMPORTANT: Replace with your actual EmailJS Public Key
     emailjs.init(emailjsConfig.publicKey);
   })();
 
-  contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+// --- VALIDATION FUNCTION ---
+const validateForm = () => {
+    const errors = [];
+
+    // Reset previous error states on each attempt
+    allInputs.forEach(input => input.classList.remove('error'));
+    responseMessage.textContent = "";
+    responseMessage.className = "mt-4 text-center text-base";
+
+    // Condition 1: Validate First Name (Required)
+    if (firstNameInput.value.trim() === "") {
+        errors.push("First name is required.");
+        firstNameInput.classList.add("error");
+    }
+
+    // Condition 2: Validate Phone Number (Required, min 10 digits)
+    const phoneValue = phoneInput.value.replace(/\D/g, ''); // Remove non-digit characters
+    if (phoneValue.length < 10) {
+        errors.push("Please enter a valid phone number with at least 10 digits.");
+        phoneInput.classList.add("error");
+    }
+
+    // Condition 3: Validate Email (Optional, but if present, must be valid)
+    const emailValue = emailInput.value.trim();
+    if (emailValue !== "") {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailValue)) {
+            errors.push("Please enter a valid email address.");
+            emailInput.classList.add("error");
+        }
+    }
+
+    return errors;
+};
+
+
+contactForm.addEventListener("submit", function (e) {
+    e.preventDefault(); // Always prevent default submission first
+
+    const validationErrors = validateForm();
+
+    // If there are errors, display them and stop
+    if (validationErrors.length > 0) {
+        responseMessage.textContent = validationErrors[0]; // Show the first error
+        responseMessage.className = "mt-4 text-center text-base text-red-400";
+        return; // Stop the function here
+    }
+
+    // If validation passes, proceed with sending the email
     const originalBtnContent = submitBtn.innerHTML;
     submitBtn.disabled = true;
     submitBtn.innerHTML = `<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>`;
@@ -292,23 +342,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const templateID = emailjsConfig.templateID;
 
     emailjs.sendForm(serviceID, templateID, this).then(
-      () => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalBtnContent;
-        responseMessage.textContent = "Message sent! We will get back to you soon.";
-        responseMessage.className = "mt-4 text-center text-base text-green-400";
-        contactForm.reset();
-        setTimeout(() => { responseMessage.textContent = ""; }, 5000);
-      },
-      (err) => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalBtnContent;
-        responseMessage.textContent = "Failed to send message. Please try again.";
-        responseMessage.className = "mt-4 text-center text-base text-red-400";
-        // console.error("EmailJS Error:", JSON.stringify(err)); 
-      }
+        () => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnContent;
+            responseMessage.textContent = "Message sent! We will get back to you soon.";
+            responseMessage.className = "mt-4 text-center text-base text-green-400";
+            contactForm.reset();
+            // Clear success message after 5 seconds
+            setTimeout(() => {
+                responseMessage.textContent = "";
+            }, 5000);
+        },
+        (err) => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnContent;
+            responseMessage.textContent = "Failed to send message. Please try again.";
+            responseMessage.className = "mt-4 text-center text-base text-red-400";
+        }
     );
-  });
+});
 
   // --- DYNAMIC COPYRIGHT YEAR ---
   const copyrightYear = document.getElementById("copyright-year");
