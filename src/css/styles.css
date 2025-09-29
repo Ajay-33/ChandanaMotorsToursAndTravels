@@ -4,12 +4,10 @@
 
 /* Custom styles */
 body {
-    /* Kept for custom font loading. A global style like this is standard. */
     font-family: 'Poppins', sans-serif; 
 }
 
 /* --- Particles.js Container --- */
-/* Kept as it requires specific absolute positioning to act as a background. */
 #home {
     position: relative;
     overflow: hidden;
@@ -29,7 +27,6 @@ body {
     z-index: 1;
 }
 
-/* This class is a target for JavaScript to set a dynamic height. */
 .min-h-dynamic {
     display: flex;
     align-items: center;
@@ -37,21 +34,19 @@ body {
 }
 
 /* --- NAVBAR STYLES --- */
-/* Kept because these styles are applied via a JS-toggled class (.navbar-scrolled). */
 .navbar-scrolled {
-    background-color: rgba(30, 58, 138, 0.75); /* Semi-transparent blue */
-    backdrop-filter: blur(12px); /* The frosted glass effect */
+    background-color: rgba(30, 58, 138, 0.75);
+    backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     border-bottom: 1px solid rgba(250, 204, 21, 0.2);
-    padding-top: 0.5rem;      /* Shrink padding */
-    padding-bottom: 0.5rem; /* Shrink padding */
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
-/* Kept for the animated underline effect, which is complex and uses relative/absolute positioning on child elements. */
 .nav-link {
     position: relative;
-    padding-bottom: 8px; /* Space for the underline */
+    padding-bottom: 8px;
 }
 
 .underline-span {
@@ -60,20 +55,19 @@ body {
     left: 0;
     right: 0;
     height: 3px;
-    background-color: #FACC15; /* yellow-400 */
+    background-color: #FACC15;
     border-radius: 2px;
-    transform: scaleX(0); /* Hidden by default */
+    transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
     box-shadow: 0 0 10px rgba(250, 204, 21, 0.7);
 }
 
 .nav-link.active .underline-span {
-    transform: scaleX(1); /* Show the underline */
+    transform: scaleX(1);
 }
 
 /* --- FLOATING ACTION BUTTON (FAB) --- */
-/* Kept as this is a complex, self-contained component with custom animations and hover states that affect child elements. */
 .fab-container {
     position: fixed;
     bottom: 2rem;
@@ -88,8 +82,8 @@ body {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background-color: #FACC15; /* yellow-400 */
-    color: #1E3A8A; /* blue-900 */
+    background-color: #FACC15;
+    color: #1E3A8A;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -137,8 +131,8 @@ body {
     position: relative;
 }
 
-.fab-action:nth-child(1) { background-color: #25D366; transition-delay: 0.1s; } /* WhatsApp */
-.fab-action:nth-child(2) { background-color: #3B82F6; transition-delay: 0.05s; } /* Phone */
+.fab-action:nth-child(1) { background-color: #25D366; transition-delay: 0.1s; }
+.fab-action:nth-child(2) { background-color: #3B82F6; transition-delay: 0.05s; }
 
 .fab-action:hover {
     transform: scale(1.15);
@@ -182,7 +176,6 @@ body {
 }
 
 /* --- ANIMATIONS & ABOUT US --- */
-/* Kept for the JS-driven scroll animation. The class is toggled, making a CSS rule the cleanest implementation. */
 .fade-in {
     opacity: 0;
     transform: translateY(50px);
@@ -194,7 +187,6 @@ body {
     transform: translateY(0);
 }
 
-/* Kept for the 3D perspective and child-targeting hover effect, which is not possible with standard Tailwind. */
 .about-image-stack {
     perspective: 1000px;
 }
@@ -208,7 +200,6 @@ body {
 }
 
 /* --- GALLERY & MODAL STYLES --- */
-/* The entire gallery and modal system is kept in CSS. It's a complex component with many states, transitions, and specific layouts that are much more maintainable and readable in a dedicated stylesheet. */
 .gallery-container {
     width: 100%;
     padding: 30px 10px 60px;
@@ -373,10 +364,9 @@ body {
 }
 
 /* --- CONTACT FORM --- */
-/* Kept because this is a large, highly-styled, responsive component. Defining its structure here makes the HTML cleaner. */
 .contact-terminal {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     background-color: rgba(30, 58, 138, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 0.75rem;
@@ -386,8 +376,10 @@ body {
 
 @media (min-width: 1024px) {
     .contact-terminal {
+        display: grid;
         grid-template-columns: 45% 55%;
         min-height: 580px;
+        flex-direction: row;
     }
 }
 
@@ -403,13 +395,24 @@ body {
     background: linear-gradient(to top, rgba(17, 24, 39, 0.9) 10%, transparent 90%);
     display: flex;
     align-items: flex-end;
-    padding: 2rem;
+    padding: 1.5rem;
+}
+@media (min-width: 640px) {
+    .terminal-image-overlay {
+        padding: 2rem;
+    }
 }
 
+
 .terminal-content {
-    padding: 2.5rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
+}
+@media (min-width: 640px) {
+    .terminal-content {
+        padding: 2.5rem;
+    }
 }
 
 .terminal-header {
@@ -505,12 +508,11 @@ body {
 }
 
 .terminal-input.error {
-    border-color: #f87171; /* red-400 */
+    border-color: #f87171;
     box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.2);
 }
 
 /* --- FOOTER STYLES --- */
-/* Kept for the ::after pseudo-element which creates the animated underline. This is not possible in Tailwind. */
 .footer-link {
     position: relative;
     transition: all 0.3s ease;
