@@ -1,4 +1,4 @@
-// script.js (CORRECTED AND FINAL VERSION)
+// script.js (UPDATED AND SIMPLIFIED)
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -72,6 +72,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // Floating Action Button (FAB) links
     document.getElementById('fab-whatsapp')?.setAttribute('href', whatsappLink);
     document.getElementById('fab-phone')?.setAttribute('href', `tel:${CONTACT.PHONE_PRIMARY}`);
+
+    // Mobile Nav Overlay links
+    document.getElementById('mobile-nav-facebook')?.setAttribute('href', CONTACT.FACEBOOK_URL);
+    document.getElementById('mobile-nav-twitter')?.setAttribute('href', CONTACT.TWITTER_URL);
+    document.getElementById('mobile-nav-linkedin')?.setAttribute('href', CONTACT.LINKEDIN_URL);
+    document.getElementById('mobile-nav-whatsapp')?.setAttribute('href', whatsappLink);
+    document.getElementById('mobile-nav-call')?.setAttribute('href', `tel:${CONTACT.PHONE_PRIMARY}`);
   };
 
   // --- INITIALIZE DYNAMIC CONTENT & FEATURES ---
@@ -112,12 +119,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // --- MOBILE MENU TOGGLE ---
+  // --- REWRITTEN & SIMPLIFIED: MOBILE MENU OVERLAY LOGIC ---
   const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenuCloseButton = document.getElementById("mobile-menu-close-button");
   const mobileMenu = document.getElementById("mobile-menu");
-  mobileMenuButton.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-    mobileMenu.classList.toggle("flex-col");
+  const mobileNavLinksInOverlay = document.querySelectorAll("#mobile-menu .nav-link");
+
+  const openMenu = () => {
+    mobileMenu.classList.add("open");
+    document.body.classList.add("no-scroll");
+  };
+
+  const closeMenu = () => {
+    mobileMenu.classList.remove("open");
+    document.body.classList.remove("no-scroll");
+  };
+
+  mobileMenuButton.addEventListener("click", openMenu);
+  mobileMenuCloseButton.addEventListener("click", closeMenu);
+
+  // Close menu when a link inside it is clicked
+  mobileNavLinksInOverlay.forEach(link => {
+    link.addEventListener("click", closeMenu);
   });
 
   // --- SMOOTH SCROLL & NAVBAR LOGIC ---
@@ -133,10 +156,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const navbarHeight = navbar.offsetHeight;
         const targetPosition = targetElement.offsetTop - navbarHeight;
         window.scrollTo({ top: targetPosition, behavior: "smooth" });
-        if (!mobileMenu.classList.contains("hidden")) {
-          mobileMenu.classList.add("hidden");
-          mobileMenu.classList.remove("flex-col");
-        }
       }
     });
   });
@@ -193,53 +212,47 @@ document.addEventListener("DOMContentLoaded", function () {
     let objectUrl = null; // This will hold the temporary URL
 
     galleryItems.forEach((item) => {
-        item.addEventListener("click", () => {
-            const imgSrc = item.querySelector("img").src;
-            const imgAlt = item.querySelector("img").alt;
-            
-            modalImg.src = imgSrc;
-            modalImg.alt = imgAlt;
+      item.addEventListener("click", () => {
+        const imgSrc = item.querySelector("img").src;
+        const imgAlt = item.querySelector("img").alt;
 
-            // Before creating a new link, disable the old one to prevent errors
-            downloadLink.href = '#';
-            
-            // 1. Fetch the image data from its source
-            fetch(imgSrc)
-                .then(response => response.blob()) // 2. Convert the response to a Blob
-                .then(blob => {
-                    // 3. Create a temporary, local URL for the Blob
-                    objectUrl = URL.createObjectURL(blob);
-                    
-                    // 4. Set the download link to use this secure, temporary URL
-                    downloadLink.href = objectUrl;
-                    downloadLink.download = `CMT_Travels-${imgAlt.toLowerCase().replace(/\s+/g, "-")}.jpg`;
-                })
-                .catch(e => console.error("Could not create download link:", e)); 
+        modalImg.src = imgSrc;
+        modalImg.alt = imgAlt;
 
-            modal.classList.add("show");
-            document.body.style.overflow = "hidden";
-        });
+        downloadLink.href = '#';
+
+        fetch(imgSrc)
+          .then(response => response.blob())
+          .then(blob => {
+            objectUrl = URL.createObjectURL(blob);
+
+            downloadLink.href = objectUrl;
+            downloadLink.download = `CMT_Travels-${imgAlt.toLowerCase().replace(/\s+/g, "-")}.jpg`;
+          })
+          .catch(e => console.error("Could not create download link:", e));
+
+        modal.classList.add("show");
+        document.body.style.overflow = "hidden";
+      });
     });
 
     const closeModal = () => {
-        modal.classList.remove("show");
-        document.body.style.overflow = "";
-        
-        // --- CLEANUP LOGIC ---
-        // When the modal closes, release the temporary URL to free up browser memory
-        if (objectUrl) {
-            URL.revokeObjectURL(objectUrl);
-            objectUrl = null;
-        }
+      modal.classList.remove("show");
+      document.body.style.overflow = "";
+
+      if (objectUrl) {
+        URL.revokeObjectURL(objectUrl);
+        objectUrl = null;
+      }
     };
 
     closeModalBtn.addEventListener("click", closeModal);
     modal.addEventListener("click", (e) => {
-        if (e.target === modal) closeModal();
+      if (e.target === modal) closeModal();
     });
 
     document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modal.classList.contains("show")) closeModal();
+      if (e.key === "Escape" && modal.classList.contains("show")) closeModal();
     });
   };
 
@@ -285,55 +298,49 @@ document.addEventListener("DOMContentLoaded", function () {
     emailjs.init(emailjsConfig.publicKey);
   })();
 
-// --- VALIDATION FUNCTION ---
-const validateForm = () => {
+  // --- VALIDATION FUNCTION ---
+  const validateForm = () => {
     const errors = [];
 
-    // Reset previous error states on each attempt
     allInputs.forEach(input => input.classList.remove('error'));
     responseMessage.textContent = "";
     responseMessage.className = "mt-4 text-center text-base";
 
-    // Condition 1: Validate First Name (Required)
     if (firstNameInput.value.trim() === "") {
-        errors.push("First name is required.");
-        firstNameInput.classList.add("error");
+      errors.push("First name is required.");
+      firstNameInput.classList.add("error");
     }
 
-    // Condition 2: Validate Phone Number (Required, min 10 digits)
-    const phoneValue = phoneInput.value.replace(/\D/g, ''); // Remove non-digit characters
+    const phoneValue = phoneInput.value.replace(/\D/g, '');
     if (phoneValue.length < 10) {
-        errors.push("Please enter a valid phone number with at least 10 digits.");
-        phoneInput.classList.add("error");
+      errors.push("Please enter a valid phone number with at least 10 digits.");
+      phoneInput.classList.add("error");
     }
 
-    // Condition 3: Validate Email (Optional, but if present, must be valid)
     const emailValue = emailInput.value.trim();
     if (emailValue !== "") {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(emailValue)) {
-            errors.push("Please enter a valid email address.");
-            emailInput.classList.add("error");
-        }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailValue)) {
+        errors.push("Please enter a valid email address.");
+        emailInput.classList.add("error");
+      }
     }
 
     return errors;
-};
+  };
 
 
-contactForm.addEventListener("submit", function (e) {
-    e.preventDefault(); // Always prevent default submission first
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
 
     const validationErrors = validateForm();
 
-    // If there are errors, display them and stop
     if (validationErrors.length > 0) {
-        responseMessage.textContent = validationErrors[0]; // Show the first error
-        responseMessage.className = "mt-4 text-center text-base text-red-400";
-        return; // Stop the function here
+      responseMessage.textContent = validationErrors[0];
+      responseMessage.className = "mt-4 text-center text-base text-red-400";
+      return;
     }
 
-    // If validation passes, proceed with sending the email
     const originalBtnContent = submitBtn.innerHTML;
     submitBtn.disabled = true;
     submitBtn.innerHTML = `<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>`;
@@ -342,25 +349,24 @@ contactForm.addEventListener("submit", function (e) {
     const templateID = emailjsConfig.templateID;
 
     emailjs.sendForm(serviceID, templateID, this).then(
-        () => {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnContent;
-            responseMessage.textContent = "Message sent! We will get back to you soon.";
-            responseMessage.className = "mt-4 text-center text-base text-green-400";
-            contactForm.reset();
-            // Clear success message after 5 seconds
-            setTimeout(() => {
-                responseMessage.textContent = "";
-            }, 5000);
-        },
-        (err) => {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnContent;
-            responseMessage.textContent = "Failed to send message. Please try again.";
-            responseMessage.className = "mt-4 text-center text-base text-red-400";
-        }
+      () => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnContent;
+        responseMessage.textContent = "Message sent! We will get back to you soon.";
+        responseMessage.className = "mt-4 text-center text-base text-green-400";
+        contactForm.reset();
+        setTimeout(() => {
+          responseMessage.textContent = "";
+        }, 5000);
+      },
+      (err) => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnContent;
+        responseMessage.textContent = "Failed to send message. Please try again.";
+        responseMessage.className = "mt-4 text-center text-base text-red-400";
+      }
     );
-});
+  });
 
   // --- DYNAMIC COPYRIGHT YEAR ---
   const copyrightYear = document.getElementById("copyright-year");

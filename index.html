@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +10,6 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <link rel="stylesheet" href="dist/css/styles.css">
 </head>
-
 <body class="bg-blue-900">
     <nav id="navbar" class="bg-blue-900 mx-auto flex justify-between items-center py-4 px-6 md:px-10 sticky top-0 z-50 text-white transition-all duration-300">
         <div>
@@ -25,17 +23,10 @@
                 <li><a href="#gallery" class="nav-link hover:text-yellow-300 transition-colors duration-300">Gallery<span class="underline-span"></span></a></li>
                 <li><a href="#contact" class="nav-link hover:text-yellow-300 transition-colors duration-300">Contact Us<span class="underline-span"></span></a></li>
             </ul>
-            <button id="mobile-menu-button" class="md:hidden bg-blue-600 p-2 rounded hover:bg-blue-700 transition duration-300 flex items-center justify-center">
+            <button id="mobile-menu-button" class="md:hidden p-2 focus:outline-none w-10 h-10">
                 <i class="fas fa-bars text-white h-6 w-6"></i>
             </button>
         </div>
-        <ul id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-blue-900 text-white py-6 flex-col items-center space-y-4 md:hidden border-t border-yellow-300 shadow-lg">
-            <li><a href="#home" class="nav-link hover:text-yellow-300 transition-colors duration-300 text-lg">Home<span class="underline-span"></span></a></li>
-            <li><a href="#about" class="nav-link hover:text-yellow-300 transition-colors duration-300 text-lg">About Us<span class="underline-span"></span></a></li>
-            <li><a href="#services" class="nav-link hover:text-yellow-300 transition-colors duration-300 text-lg">Services<span class="underline-span"></span></a></li>
-            <li><a href="#gallery" class="nav-link hover:text-yellow-300 transition-colors duration-300 text-lg">Gallery<span class="underline-span"></span></a></li>
-            <li><a href="#contact" class="nav-link hover:text-yellow-300 transition-colors duration-300 text-lg">Contact Us<span class="underline-span"></span></a></li>
-        </ul>
     </nav>
 
     <main>
@@ -470,11 +461,35 @@
             </a>
         </div>
     </div>
+    <div id="mobile-menu" class="fixed inset-0 bg-blue-900 bg-opacity-95 backdrop-blur-lg z-[999] flex flex-col items-center justify-center transition-opacity duration-300 ease-in-out opacity-0 invisible">
+            <button id="mobile-menu-close-button" class="absolute top-4 right-4 p-4 text-yellow-400 z-[1000]">
+                <i class="fas fa-times h-8 w-8"></i>
+            </button>
+            <ul class="flex flex-col items-center text-center space-y-8">
+                <li><a href="#home" class="nav-link mobile-nav-link text-3xl font-semibold">Home<span class="underline-span"></span></a></li>
+                <li><a href="#about" class="nav-link mobile-nav-link text-3xl font-semibold">About Us<span class="underline-span"></span></a></li>
+                <li><a href="#services" class="nav-link mobile-nav-link text-3xl font-semibold">Services<span class="underline-span"></span></a></li>
+                <li><a href="#gallery" class="nav-link mobile-nav-link text-3xl font-semibold">Gallery<span class="underline-span"></span></a></li>
+                <li><a href="#contact" class="nav-link mobile-nav-link text-3xl font-semibold">Contact Us<span class="underline-span"></span></a></li>
+            </ul>
+            <div class="absolute bottom-10 left-0 right-0 px-6">
+                <div class="mobile-nav-footer flex flex-col items-center gap-6 pt-6 border-t border-yellow-400/20">
+                    <div class="flex space-x-6 text-white">
+                        <a href="#" id="mobile-nav-facebook" target="_blank" class="text-2xl hover:text-yellow-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" id="mobile-nav-twitter" target="_blank" class="text-2xl hover:text-yellow-400 transition-colors"><i class="fab fa-twitter"></i></a>
+                        <a href="#" id="mobile-nav-linkedin" target="_blank" class="text-2xl hover:text-yellow-400 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" id="mobile-nav-whatsapp" target="_blank" class="text-2xl hover:text-yellow-400 transition-colors"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <a href="#" id="mobile-nav-call" class="bg-yellow-400 text-blue-900 px-6 py-3 w-full max-w-xs text-center rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-300">
+                        Call Us Now
+                    </a>
+                </div>
+            </div>
+    </div>
 
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="src/js/constants.js"></script>
     <script src="src/js/config.js"></script>
     <script src="src/js/script.js"></script>
 </body>
-
 </html>
