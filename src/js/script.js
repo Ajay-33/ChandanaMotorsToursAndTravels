@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
       galleryHtml += `
         <div class="swiper-slide gallery-item">
           <div class="gallery-image-container">
-            <img src="${image.src}" alt="${image.alt}" class="gallery-image">
+            <img src="${image.src}" alt="${image.alt}" class="gallery-image" loading="lazy" decoding="async" width="1600" height="900">
             <div class="gallery-overlay">
               <div class="gallery-info">
                 <h3 class="text-xl font-bold text-yellow-400">${image.title}</h3>
@@ -89,13 +89,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.getElementById("navbar");
   const dynamicSections = document.querySelectorAll(".min-h-dynamic");
   function adjustSectionHeight() {
-    const navbarHeight = navbar.offsetHeight;
+    const navbarHeight = navbar?.offsetHeight || 64; // Fallback to ~64px if not available
     const windowHeight = window.innerHeight;
+    const minHeight = Math.max(windowHeight - navbarHeight, 400); // Minimum 400px
     dynamicSections.forEach((section) => {
-      section.style.minHeight = `${windowHeight - navbarHeight}px`;
+      section.style.minHeight = `${minHeight}px`;
     });
   }
-  adjustSectionHeight();
+  // Use a small delay to ensure navbar is fully rendered
+  setTimeout(adjustSectionHeight, 100);
   window.addEventListener("resize", adjustSectionHeight);
 
   // --- PARTICLES.JS INITIALIZATION (Lazy-loaded, waits for particlesJS) ---
