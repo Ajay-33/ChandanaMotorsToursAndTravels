@@ -423,8 +423,11 @@ body.no-scroll {
 }
 
 #modal-img {
-  max-width: 90%;
-  max-height: 80%;
+  max-width: 85%;
+  max-height: 75vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
   border-radius: 8px;
   box-shadow: 0 0 40px rgba(250, 204, 21, 0.2);
   margin-bottom: 20px;
