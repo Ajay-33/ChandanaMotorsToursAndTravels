@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CMT Travels - Your Journey, Our Priority</title>
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <!-- Preconnect to CDN origins for faster resource resolution -->
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="dns-prefetch" href="//unpkg.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <!-- Font Awesome (synchronous, critical) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- Lazy-load non-critical Swiper CSS -->
+    <link rel="preload" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"></noscript>
+    <!-- Preload and lazy-load Tailwind CSS -->
     <link rel="preload" href="/dist/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/dist/css/styles.css"></noscript>
 </head>
@@ -488,9 +497,74 @@
             </div>
     </div>
 
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <script src="src/js/constants.js"></script>
-    <script src="src/js/config.js"></script>
-    <script src="src/js/script.js"></script>
+    <!-- Deferred core scripts -->
+    <script defer src="src/js/constants.js"></script>
+    <script defer src="src/js/config.js"></script>
+    <script defer src="src/js/script.js"></script>
+    <!-- Lazy-loader for third-party heavy libraries (Swiper, Particles, EmailJS) -->
+    <script defer>
+      window.lazyLoadScripts = function() {
+        // Load Swiper when gallery section is about to become visible
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              if (!window.swiperLoaded) {
+                const script = document.createElement('script');
+                script.src = 'https://unpkg.com/swiper@8/swiper-bundle.min.js';
+                script.onload = () => { window.swiperLoaded = true; };
+                document.body.appendChild(script);
+              }
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: '200px' });
+        const gallerySection = document.getElementById('gallery');
+        if (gallerySection) observer.observe(gallerySection);
+        
+        // Load Particles.js when home section is visible (or immediately if already visible)
+        const homeSection = document.getElementById('home');
+        if (homeSection) {
+          const homeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting && !window.particlesLoaded) {
+                const pScript = document.createElement('script');
+                pScript.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
+                pScript.onload = () => { window.particlesLoaded = true; };
+                document.body.appendChild(pScript);
+              }
+            });
+          }, { rootMargin: '0px' });
+          homeObserver.observe(homeSection);
+        }
+        
+        // Load EmailJS when contact form is visible or after 3 seconds
+        const contactSection = document.getElementById('contact');
+        let emailjsLoaded = false;
+        const loadEmailJS = () => {
+          if (!emailjsLoaded) {
+            const eScript = document.createElement('script');
+            eScript.type = 'text/javascript';
+            eScript.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+            eScript.onload = () => { emailjsLoaded = true; };
+            document.body.appendChild(eScript);
+          }
+        };
+        if (contactSection) {
+          const contactObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) loadEmailJS();
+            });
+          }, { rootMargin: '200px' });
+          contactObserver.observe(contactSection);
+        }
+        setTimeout(() => loadEmailJS(), 3000); // Fallback: load after 3s if not visible
+      };
+      // Initialize lazy-loading once DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', window.lazyLoadScripts);
+      } else {
+        window.lazyLoadScripts();
+      }
+    </script>
 </body>
 </html>

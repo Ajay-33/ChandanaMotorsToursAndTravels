@@ -98,26 +98,33 @@ document.addEventListener("DOMContentLoaded", function () {
   adjustSectionHeight();
   window.addEventListener("resize", adjustSectionHeight);
 
-  // --- PARTICLES.JS INITIALIZATION ---
-  if (typeof particlesJS !== "undefined") {
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
-        color: { value: "#ffffff" },
-        shape: { type: "circle" },
-        opacity: { value: 0.3, random: true },
-        size: { value: 3, random: true },
-        line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.2, width: 1 },
-        move: { enable: true, speed: 1, direction: "none", random: true, straight: false, out_mode: "out", bounce: false },
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" }, resize: true },
-        modes: { grab: { distance: 140, line_linked: { opacity: 0.5 } }, push: { particles_nb: 4 } },
-      },
-      retina_detect: true,
-    });
-  }
+  // --- PARTICLES.JS INITIALIZATION (Lazy-loaded, waits for particlesJS) ---
+  const initParticles = () => {
+    if (typeof particlesJS !== "undefined") {
+      particlesJS("particles-js", {
+        particles: {
+          number: { value: 80, density: { enable: true, value_area: 800 } },
+          color: { value: "#ffffff" },
+          shape: { type: "circle" },
+          opacity: { value: 0.3, random: true },
+          size: { value: 3, random: true },
+          line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.2, width: 1 },
+          move: { enable: true, speed: 1, direction: "none", random: true, straight: false, out_mode: "out", bounce: false },
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" }, resize: true },
+          modes: { grab: { distance: 140, line_linked: { opacity: 0.5 } }, push: { particles_nb: 4 } },
+        },
+        retina_detect: true,
+      });
+    } else {
+      // Retry if not yet loaded
+      setTimeout(initParticles, 100);
+    }
+  };
+  // Defer particles init slightly to allow lazy-loading
+  setTimeout(initParticles, 500);
 
   // --- REWRITTEN & SIMPLIFIED: MOBILE MENU OVERLAY LOGIC ---
   const mobileMenuButton = document.getElementById("mobile-menu-button");
@@ -256,36 +263,40 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
-  // --- SWIPER INITIALIZATION ---
+  // --- SWIPER INITIALIZATION (Lazy-loaded, waits for Swiper) ---
   const initializeSwiper = () => {
-    const modal = document.getElementById("image-modal");
-    var swiper = new Swiper(".gallery-container", {
-      effect: "coverflow",
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: "auto",
-      loop: true,
-      speed: 600,
-      autoplay: { delay: 4000, disableOnInteraction: false },
-      coverflowEffect: { rotate: 5, stretch: 0, depth: 100, modifier: 2, slideShadows: true },
-      pagination: { el: ".swiper-pagination", clickable: true, dynamicBullets: true },
-      navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-      scrollbar: { el: ".swiper-scrollbar", draggable: true },
-      breakpoints: { 768: { coverflowEffect: { rotate: 10, stretch: -20, depth: 150, modifier: 2 } } },
-    });
+    if (typeof Swiper !== "undefined") {
+      const modal = document.getElementById("image-modal");
+      var swiper = new Swiper(".gallery-container", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        loop: true,
+        speed: 600,
+        autoplay: { delay: 4000, disableOnInteraction: false },
+        coverflowEffect: { rotate: 5, stretch: 0, depth: 100, modifier: 2, slideShadows: true },
+        pagination: { el: ".swiper-pagination", clickable: true, dynamicBullets: true },
+        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+        scrollbar: { el: ".swiper-scrollbar", draggable: true },
+        breakpoints: { 768: { coverflowEffect: { rotate: 10, stretch: -20, depth: 150, modifier: 2 } } },
+      });
 
-    document.addEventListener("keydown", (e) => {
-      if (modal.classList.contains("show") && e.key === "ArrowRight") swiper.slideNext();
-      if (modal.classList.contains("show") && e.key === "ArrowLeft") swiper.slidePrev();
-    });
+      document.addEventListener("keydown", (e) => {
+        if (modal.classList.contains("show") && e.key === "ArrowRight") swiper.slideNext();
+        if (modal.classList.contains("show") && e.key === "ArrowLeft") swiper.slidePrev();
+      });
+    } else {
+      // Retry if not yet loaded
+      setTimeout(initializeSwiper, 100);
+    }
   };
-
-  // Initialize plugins AFTER dynamic content is ready
-  initializeSwiper();
+  // Defer swiper init until library is lazy-loaded
+  setTimeout(initializeSwiper, 1000);
   setupGalleryModal();
 
 
-  // --- EMAILJS FORM SUBMISSION ---
+  // --- EMAILJS FORM SUBMISSION (Lazy-loaded, waits for emailjs library) ---
   const contactForm = document.getElementById("contact-form");
   const responseMessage = document.getElementById("response-message");
   const submitBtn = document.getElementById("submit-button");
@@ -294,9 +305,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const emailInput = document.getElementById("email");
   const allInputs = [firstNameInput, phoneInput, emailInput];
 
-  (function () {
-    emailjs.init(emailjsConfig.publicKey);
-  })();
+  // Initialize EmailJS only after library is lazy-loaded
+  const initEmailJS = () => {
+    if (typeof emailjs === "undefined") {
+      setTimeout(initEmailJS, 100);
+      return;
+    }
+    (function () {
+      emailjs.init(emailjsConfig.publicKey);
+    })();
+  };
+  setTimeout(initEmailJS, 500);
 
   // --- VALIDATION FUNCTION ---
   const validateForm = () => {
