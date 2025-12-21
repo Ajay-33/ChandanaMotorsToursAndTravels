@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <link rel="stylesheet" href="dist/css/styles.css">
+    <link rel="preload" href="/dist/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/dist/css/styles.css"></noscript>
 </head>
 <body class="bg-blue-900">
     <nav id="navbar" class="bg-blue-900 mx-auto flex justify-between items-center py-4 px-6 md:px-10 sticky top-0 z-50 text-white transition-all duration-300">
@@ -77,8 +78,8 @@
                         </div>
                     </div>
                     <div class="relative h-80 sm:h-96 lg:h-[500px] about-image-stack fade-in" style="transition-delay: 0.2s;">
-                        <img src="images/buses/Type2.jpeg" alt="CMT Travels Luxury Bus" class="absolute top-0 left-0 w-4/5 h-auto object-cover rounded-xl shadow-2xl transform -rotate-6 transition-transform duration-500 ease-in-out">
-                        <img src="images/buses/Interior.jpeg" alt="Comfortable Bus Interior" class="absolute bottom-0 right-0 w-4/5 h-auto object-cover rounded-xl shadow-2xl border-4 border-yellow-400 transform rotate-4 transition-transform duration-500 ease-in-out">
+                        <img src="images/buses/Type2.webp" alt="CMT Travels Luxury Bus" class="absolute top-0 left-0 w-4/5 h-auto object-cover rounded-xl shadow-2xl transform -rotate-6 transition-transform duration-500 ease-in-out">
+                        <img src="images/buses/Interior.webp" alt="Comfortable Bus Interior" class="absolute bottom-0 right-0 w-4/5 h-auto object-cover rounded-xl shadow-2xl border-4 border-yellow-400 transform rotate-4 transition-transform duration-500 ease-in-out">
                     </div>
                 </div>
             </div>
@@ -295,7 +296,7 @@
                 </div>
                 <div class="contact-terminal fade-in" style="transition-delay: 0.2s;">
                     <div class="terminal-image">
-                        <img src="images/buses/Interior.jpeg" alt="Luxury bus interior" class="w-full h-full object-cover">
+                        <img src="images/buses/Interior.webp" alt="Luxury bus interior" class="w-full h-full object-cover">
                         <div class="terminal-image-overlay">
                             <div>
                                 <h3 class="text-3xl font-bold text-white">CMT Travels</h3>
