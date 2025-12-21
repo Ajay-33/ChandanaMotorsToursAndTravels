@@ -17,8 +17,9 @@
     <link rel="preload" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"></noscript>
     <!-- Preload and lazy-load Tailwind CSS -->
-    <link rel="preload" href="/dist/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="/dist/css/styles.css"></noscript>
+    <!-- FIXED: make Tailwind render-blocking -->
+    <link rel="stylesheet" href="/dist/css/styles.css">
+
 </head>
 <body class="bg-blue-900">
     <nav id="navbar" class="bg-blue-900 mx-auto flex justify-between items-center py-4 px-6 md:px-10 sticky top-0 z-50 text-white transition-all duration-300">
