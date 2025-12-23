@@ -30,8 +30,8 @@
             <ul class="hidden md:flex md:mr-6 space-x-8 text-lg nav-links">
                 <li><a href="#home" class="nav-link hover:text-yellow-300 transition-colors duration-300">Home<span class="underline-span"></span></a></li>
                 <li><a href="#about" class="nav-link hover:text-yellow-300 transition-colors duration-300">About Us<span class="underline-span"></span></a></li>
-                <li><a href="#services" class="nav-link hover:text-yellow-300 transition-colors duration-300">Services<span class="underline-span"></span></a></li>
                 <li><a href="#gallery" class="nav-link hover:text-yellow-300 transition-colors duration-300">Gallery<span class="underline-span"></span></a></li>
+                <li><a href="#services" class="nav-link hover:text-yellow-300 transition-colors duration-300">Services<span class="underline-span"></span></a></li>
                 <li><a href="#contact" class="nav-link hover:text-yellow-300 transition-colors duration-300">Contact Us<span class="underline-span"></span></a></li>
             </ul>
             <button id="mobile-menu-button" class="md:hidden p-2 focus:outline-none w-10 h-10">
@@ -65,14 +65,14 @@
                         <p class="text-base sm:text-lg text-gray-200 leading-relaxed">
                             At <span class="font-bold text-yellow-400">CMT Travels</span>, we do more than just get you
                             from point A to B; we provide luxurious and affordable travel solutions designed for your
-                            comfort and safety. Whether you're planning a family vacation, a honeymoon, or a corporate
-                            event, we ensure a seamless and memorable experience. Let us handle the details while you
+                            comfort and safety. Whether you're planning a family vacation, temples ,events, or a corporate
+                            event or corportate solutions, we ensure a seamless and memorable experience. Let us handle the details while you
                             create lasting memories.
                         </p>
                         <div class="grid grid-cols-3 gap-4 sm:gap-8 pt-6">
                             <div class="text-center transition-transform duration-300 hover:-translate-y-2">
                                 <div class="text-yellow-400 text-3xl sm:text-4xl mb-2"><i class="fas fa-star"></i></div>
-                                <p class="text-2xl sm:text-3xl font-bold">5,000+</p>
+                                <p class="text-2xl sm:text-3xl font-bold">10,000+</p>
                                 <p class="text-sm sm:text-base text-gray-400">Happy Travelers</p>
                             </div>
                             <div class="text-center transition-transform duration-300 hover:-translate-y-2">
@@ -82,7 +82,7 @@
                             </div>
                             <div class="text-center transition-transform duration-300 hover:-translate-y-2">
                                 <div class="text-yellow-400 text-3xl sm:text-4xl mb-2"><i class="fas fa-calendar-alt"></i></div>
-                                <p class="text-2xl sm:text-3xl font-bold">10+</p>
+                                <p class="text-2xl sm:text-3xl font-bold">20+</p>
                                 <p class="text-sm sm:text-base text-gray-400">Years of Service</p>
                             </div>
                         </div>
@@ -91,6 +91,27 @@
                         <img src="images/buses/Type2.webp" alt="CMT Travels Luxury Bus" class="absolute top-0 left-0 w-4/5 h-auto object-cover rounded-xl shadow-2xl transform -rotate-6 transition-transform duration-500 ease-in-out" loading="lazy" decoding="async" width="1600" height="900">
                         <img src="images/buses/Interior.webp" alt="Comfortable Bus Interior" class="absolute bottom-0 right-0 w-4/5 h-auto object-cover rounded-xl shadow-2xl border-4 border-yellow-400 transform rotate-4 transition-transform duration-500 ease-in-out" loading="lazy" decoding="async" width="1600" height="900">
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="min-h-dynamic py-20 px-6 md:px-12 bg-gradient-to-br from-blue-800 via-blue-900 to-indigo-800 text-white">
+            <div class="sm:max-w-screen-2xl max-w-sm mx-auto text-center overflow-hidden">
+                <h2 class="text-4xl sm:text-5xl font-extrabold text-yellow-400 mb-6 fade-in">Explore Our Luxury Fleet</h2>
+                <p class="text-xl text-gray-300 mb-12 fade-in">Click on any image to view it in full size and discover our premium amenities.</p>
+                <div class="swiper gallery-container fade-in">
+                    <div class="swiper-wrapper" id="gallery-wrapper"></div>
+                    
+                    <div class="swiper-pagination mb-2"></div>
+                    <div class="swiper-button-next custom-nav"></div>
+                    <div class="swiper-button-prev custom-nav"></div>
+                    <div class="swiper-scrollbar mt-8 !bg-blue-700">
+                        <div class="swiper-scrollbar-drag !bg-yellow-400"></div>
+                    </div>
+                </div>
+                <div class="mt-12 fade-in">
+                    <p class="text-lg text-gray-300 mb-6">Interested in our fleet? Contact us for more details!</p>
+                    <a href="#contact" class="inline-block bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-300">Request Fleet Information</a>
                 </div>
             </div>
         </section>
@@ -277,27 +298,6 @@
             </div>
         </section>
 
-        <section id="gallery" class="min-h-dynamic py-20 px-6 md:px-12 bg-gradient-to-br from-blue-800 via-blue-900 to-indigo-800 text-white">
-            <div class="sm:max-w-screen-2xl max-w-sm mx-auto text-center overflow-hidden">
-                <h2 class="text-4xl sm:text-5xl font-extrabold text-yellow-400 mb-6 fade-in">Explore Our Luxury Fleet</h2>
-                <p class="text-xl text-gray-300 mb-12 fade-in">Click on any image to view it in full size and discover our premium amenities.</p>
-                <div class="swiper gallery-container fade-in">
-                    <div class="swiper-wrapper" id="gallery-wrapper"></div>
-                    
-                    <div class="swiper-pagination mb-2"></div>
-                    <div class="swiper-button-next custom-nav"></div>
-                    <div class="swiper-button-prev custom-nav"></div>
-                    <div class="swiper-scrollbar mt-8 !bg-blue-700">
-                        <div class="swiper-scrollbar-drag !bg-yellow-400"></div>
-                    </div>
-                </div>
-                <div class="mt-12 fade-in">
-                    <p class="text-lg text-gray-300 mb-6">Interested in our fleet? Contact us for more details!</p>
-                    <a href="#contact" class="inline-block bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-300">Request Fleet Information</a>
-                </div>
-            </div>
-        </section>
-
         <section id="contact" class="min-h-dynamic py-20 px-6 md:px-12 bg-gradient-to-br from-blue-800 via-blue-900 to-indigo-800 text-white flex items-center justify-center">
             <div class="max-w-6xl mx-auto w-full">
                 <div class="text-center mb-12">
@@ -370,11 +370,8 @@
                     <a href="#" id="footer-facebook" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 hover:-translate-y-1 bg-blue-700 hover:bg-blue-600">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="#" id="footer-twitter" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 hover:-translate-y-1 bg-sky-500 hover:bg-sky-400">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" id="footer-linkedin" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 hover:-translate-y-1 bg-blue-600 hover:bg-blue-500">
-                        <i class="fab fa-linkedin-in"></i>
+                    <a href="#" id="footer-email" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 hover:-translate-y-1 bg-sky-500 hover:bg-sky-400">
+                        <i class="fa fa-envelope"></i>
                     </a>
                     <a href="#" id="footer-whatsapp" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 hover:-translate-y-1 bg-green-500 hover:bg-green-400">
                         <i class="fab fa-whatsapp"></i>
@@ -387,8 +384,8 @@
                 <ul class="space-y-3">
                     <li><a href="#home" class="footer-link hover:text-yellow-400 transition-colors duration-300">Home</a></li>
                     <li><a href="#about" class="footer-link hover:text-yellow-400 transition-colors duration-300">About Us</a></li>
-                    <li><a href="#services" class="footer-link hover:text-yellow-400 transition-colors duration-300">Services</a></li>
                     <li><a href="#gallery" class="footer-link hover:text-yellow-400 transition-colors duration-300">Gallery</a></li>
+                    <li><a href="#services" class="footer-link hover:text-yellow-400 transition-colors duration-300">Services</a></li>
                     <li><a href="#contact" class="footer-link hover:text-yellow-400 transition-colors duration-300">Contact Us</a></li>
                 </ul>
             </div>
@@ -479,16 +476,15 @@
             <ul class="flex flex-col items-center text-center space-y-8">
                 <li><a href="#home" class="nav-link mobile-nav-link text-3xl font-semibold">Home<span class="underline-span"></span></a></li>
                 <li><a href="#about" class="nav-link mobile-nav-link text-3xl font-semibold">About Us<span class="underline-span"></span></a></li>
-                <li><a href="#services" class="nav-link mobile-nav-link text-3xl font-semibold">Services<span class="underline-span"></span></a></li>
                 <li><a href="#gallery" class="nav-link mobile-nav-link text-3xl font-semibold">Gallery<span class="underline-span"></span></a></li>
+                <li><a href="#services" class="nav-link mobile-nav-link text-3xl font-semibold">Services<span class="underline-span"></span></a></li>
                 <li><a href="#contact" class="nav-link mobile-nav-link text-3xl font-semibold">Contact Us<span class="underline-span"></span></a></li>
             </ul>
             <div class="absolute bottom-10 left-0 right-0 px-6">
                 <div class="mobile-nav-footer flex flex-col items-center gap-6 pt-6 border-t border-yellow-400/20">
                     <div class="flex space-x-6 text-white">
                         <a href="#" id="mobile-nav-facebook" target="_blank" class="text-2xl hover:text-yellow-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" id="mobile-nav-twitter" target="_blank" class="text-2xl hover:text-yellow-400 transition-colors"><i class="fab fa-twitter"></i></a>
-                        <a href="#" id="mobile-nav-linkedin" target="_blank" class="text-2xl hover:text-yellow-400 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" id="mobile-nav-instagram" target="_blank" class="text-2xl hover:text-yellow-400 transition-colors"><i class="fab fa-instagram"></i></a>
                         <a href="#" id="mobile-nav-whatsapp" target="_blank" class="text-2xl hover:text-yellow-400 transition-colors"><i class="fab fa-whatsapp"></i></a>
                     </div>
                     <a href="#" id="mobile-nav-call" class="bg-yellow-400 text-blue-900 px-6 py-3 w-full max-w-xs text-center rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-300">
