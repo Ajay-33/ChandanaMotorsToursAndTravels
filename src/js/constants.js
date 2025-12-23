@@ -1,7 +1,7 @@
 const AppConstants = {
   CONTACT: {
-    PHONE_PRIMARY: "+919959170817",
-    PHONE_SECONDARY: "+918328338811",
+    PHONE_PRIMARY: "+918328338811",
+    PHONE_SECONDARY: "+919959170817",
     PHONE_TERTIARY: "+919030656205",
     WHATSAPP: "919959170817", // Number only for wa.me link
     EMAIL: "chandanamotorstoursandtravels@gmail.com",
@@ -10,118 +10,141 @@ const AppConstants = {
     LINKEDIN_URL: "#",
   },
 GALLERY_IMAGES: [
-    // --- Main Fleet Exteriors ---
-    {
-      src: "images/buses/Type1.webp",
-      alt: "CMT Travels Luxury Coach",
-      title: "Premium Coach",
-      details: "40 Seats • AC • Entertainment",
-    },
-    {
-      src: "images/buses/Type2.webp",
-      alt: "CMT Travels Modern Bus",
-      title: "Modern Fleet",
-      details: "Sleek, comfortable, and reliable",
-    },
-    {
-      src: "images/buses/Type3.webp",
-      alt: "CMT Travels Versatile Tour Bus",
-      title: "Versatile Tourer",
-      details: "Perfect for city tours & long distances",
-    },
-    {
-      src: "images/buses/Type4.webp",
-      alt: "CMT Travels Large Capacity Coach",
-      title: "Grand Voyager",
-      details: "High capacity for large groups",
-    },
-    {
-      src: "images/buses/Type5.webp",
-      alt: "CMT Travels Executive Shuttle Bus",
-      title: "Executive Shuttle",
-      details: "Luxury travel for corporate needs",
-    },
-    {
-      src: "images/buses/Type1-2.webp",
-      alt: "CMT Travels Executive Bus Side View",
-      title: "Executive Bus",
-      details: "Luxury Seating • WiFi • Charging Ports",
-    },
-    {
-      src: "images/buses/Type2-2.webp",
-      alt: "Side profile of a modern CMT coach",
-      title: "Sleek Design",
-      details: "Aerodynamic and fuel-efficient build",
-    },
-    {
-      src: "images/buses/Type4-2.webp",
-      alt: "Another angle of the Grand Voyager bus",
-      title: "Voyager Fleet",
-      details: "Consistent quality across our fleet",
-    },
-    {
-      src: "images/buses/Type4-3.webp",
-      alt: "Front view of the CMT Grand Voyager",
-      title: "Commanding Presence",
-      details: "Modern and professional look",
-    },
+  // --- Ashok Leyland 28 Seater AC ---
+  {
+    src: "images/buses/ashokleyland28seaterac.webp",
+    alt: "Ashok Leyland 28 Seater AC Bus",
+    title: "Ashok Leyland 28 Seater",
+    details: "AC • Comfortable Seating • Ideal for Tours",
+  },
+  {
+    src: "images/buses/ashokleyland28seaterseatsac-interiorfrontview.webp",
+    alt: "Interior front view of Ashok Leyland 28 Seater AC",
+    title: "Comfortable Interior",
+    details: "Well-spaced seats with ample legroom",
+  },
+  {
+    src: "images/buses/ashokleyland28seaterseatsac-interiorbackview.webp",
+    alt: "Interior back view of Ashok Leyland 28 Seater AC",
+    title: "Spacious Seating",
+    details: "Designed for relaxed long journeys",
+  },
+  {
+    src: "images/buses/ashokleyland28seaterac-door.webp",
+    alt: "Ashok Leyland 28 Seater AC Bus Door",
+    title: "Easy Entry",
+    details: "Wide door with safe access",
+  },
 
-    // --- Interior & Seating Views ---
-    {
-      src: "images/buses/Interior.webp",
-      alt: "Plush reclining seats inside a CMT bus",
-      title: "Spacious Interior",
-      details: "Ample legroom and comfortable seating",
-    },
-    {
-      src: "images/buses/Seats.webp",
-      alt: "Close-up of premium fabric seats",
-      title: "Premium Seating",
-      details: "Ergonomically designed for comfort",
-    },
-    {
-      src: "images/buses/Interior-2.webp",
-      alt: "View from the back of the bus interior",
-      title: "Cabin Ambiance",
-      details: "Clean, well-lit, and welcoming",
-    },
-    {
-      src: "images/buses/Bus_Seats.webp",
-      alt: "Driver's cockpit and front row seats",
-      title: "Clean & Tidy",
-      details: "Impeccably maintained for every trip",
-    },
-    {
-        src: "images/buses/Seats-3.webp",
-        alt: "Side view of reclining bus seats",
-        title: "Recline and Relax",
-        details: "Adjustable seats for your journey",
-    },
-    {
-      src: "images/buses/Interior-3.webp",
-      alt: "Overhead luggage compartments",
-      title: "Ample Storage",
-      details: "Secure overhead space for luggage",
-    },
-    {
-      src: "images/buses/Door.webp",
-      alt: "CMT Travels Bus Entrance",
-      title: "Easy Access",
-      details: "Wide Doors • Low Steps • Safety Rails",
-    },
+  // --- Ashok Leyland 40 Seater AC ---
+  {
+    src: "images/buses/ashokleyalnd40seaterac.webp",
+    alt: "Ashok Leyland 40 Seater AC Bus",
+    title: "Ashok Leyland 40 Seater",
+    details: "AC • High Capacity • Smooth Ride",
+  },
+  {
+    src: "images/buses/ashokleyland40seaterac-interior.webp",
+    alt: "Interior of Ashok Leyland 40 Seater AC",
+    title: "Spacious Cabin",
+    details: "Comfort-focused seating layout",
+  },
 
-    // --- Mini Coach ---
-    {
-      src: "images/buses/Mini.webp",
-      alt: "CMT Travels mini coach for small groups",
-      title: "Compact Mini Coach",
-      details: "Ideal for smaller groups and events",
-    },
-    {
-      src: "images/buses/Mini-2.webp",
-      alt: "Side view of the CMT mini coach",
-      title: "Efficient & Nimble",
-      details: "Perfect for navigating city streets",
-    },
-  ],
+  // --- Ashok Leyland 40 Seater Staff Bus ---
+  {
+    src: "images/buses/ashokleyalnd40seaterac-staffbus.webp",
+    alt: "Ashok Leyland 40 Seater AC Staff Bus",
+    title: "Staff Bus",
+    details: "Reliable daily commute solution",
+  },
+  {
+    src: "images/buses/ashokleyalnd40seaterac-staffbus-interior.webp",
+    alt: "Interior of Ashok Leyland Staff Bus",
+    title: "Functional Interior",
+    details: "Durable seating for everyday travel",
+  },
+
+  // --- Ashok Leyland 50 Seater Non-AC ---
+  {
+    src: "images/buses/ashokleyland50searernonac.webp",
+    alt: "Ashok Leyland 50 Seater Non AC Bus",
+    title: "Ashok Leyland 50 Seater",
+    details: "Non-AC • Large Capacity • Budget Friendly",
+  },
+  {
+    src: "images/buses/ashokleyland50searernonac-interiorf.webp",
+    alt: "Front interior of Ashok Leyland 50 Seater",
+    title: "Spacious Interior",
+    details: "Comfortable seating arrangement",
+  },
+  {
+    src: "images/buses/ashokleyland50searernonac-interiorb.webp",
+    alt: "Back interior of Ashok Leyland 50 Seater",
+    title: "Wide Aisles",
+    details: "Easy movement and ventilation",
+  },
+
+  // --- Bharat Benz 28 Seater AC ---
+  {
+    src: "images/buses/bb28seaterac.webp",
+    alt: "Bharat Benz 28 Seater AC Bus",
+    title: "Bharat Benz 28 Seater",
+    details: "AC • Premium Build • Smooth Performance",
+  },
+  {
+    src: "images/buses/bb28seater-interior.webp",
+    alt: "Interior of Bharat Benz 28 Seater AC",
+    title: "Premium Interior",
+    details: "Comfortable seats with refined finish",
+  },
+
+  // --- SML 17 Seater AC Mini Coach ---
+  {
+    src: "images/buses/sml17seateracmini.webp",
+    alt: "SML 17 Seater AC Mini Coach",
+    title: "SML 17 Seater Mini Coach",
+    details: "AC • Compact • Ideal for Small Groups",
+  },
+  {
+    src: "images/buses/sml17seateracmini-interior.webp",
+    alt: "Interior of SML 17 Seater Mini Coach",
+    title: "Compact Interior",
+    details: "Efficient seating with comfort",
+  },
+
+  // --- SML 22 Seater AC ---
+  {
+    src: "images/buses/sml22seaterac.webp",
+    alt: "SML 22 Seater AC Bus",
+    title: "SML 22 Seater",
+    details: "AC • Mid-size • Comfortable Travel",
+  },
+  {
+    src: "images/buses/sml22seaterac-interior.webp",
+    alt: "Interior of SML 22 Seater AC",
+    title: "Neat Interior",
+    details: "Well-maintained seating layout",
+  },
+
+  // --- SML 28 Seater Executive Coach ---
+  {
+    src: "images/buses/sml28seaterexeccoachac.webp",
+    alt: "SML 28 Seater Executive Coach AC",
+    title: "SML 28 Seater Executive",
+    details: "AC • Executive Comfort • Premium Travel",
+  },
+  {
+    src: "images/buses/sml28seaterexeccoachac-back.webp",
+    alt: "Rear view of SML Executive Coach",
+    title: "Executive Design",
+    details: "Professional and premium appearance",
+  },
+  {
+    src: "images/buses/sml28seaterexeccoach-interior.webp",
+    alt: "Interior of SML Executive Coach",
+    title: "Luxury Interior",
+    details: "Reclining seats with extra comfort",
+  },
+],
+
 };
