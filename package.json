@@ -5,7 +5,9 @@
   "main": "config.js",
   "scripts": {
     "build": "tailwindcss -i ./src/css/styles.css -o ./dist/css/styles.css --minify",
-    "watch": "tailwindcss -i ./src/css/styles.css -o ./dist/css/styles.css --watch"
+    "watch": "tailwindcss -i ./src/css/styles.css -o ./dist/css/styles.css --watch",
+    "vercel-build": "npm run build",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
