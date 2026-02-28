@@ -27,6 +27,55 @@ document.addEventListener("DOMContentLoaded", function () {
     wrapper.innerHTML = galleryHtml;
   };
 
+  // 1.1 Generate Caravan Showcase (main attraction) from constants
+  const generateCaravanShowcase = () => {
+    const { CARAVAN_SHOWCASE } = AppConstants;
+    if (!CARAVAN_SHOWCASE) return;
+
+    const titleEl = document.getElementById("caravan-title");
+    const subtitleEl = document.getElementById("caravan-subtitle");
+    const videoTitleEl = document.getElementById("caravan-video-title");
+    const videoDescriptionEl = document.getElementById("caravan-video-description");
+    const videoEl = document.getElementById("caravan-video");
+    const videoSourceEl = document.getElementById("caravan-video-source");
+    const videoFallbackEl = document.getElementById("caravan-video-fallback");
+    const photoGridEl = document.getElementById("caravan-photo-grid");
+
+    if (titleEl) titleEl.textContent = CARAVAN_SHOWCASE.TITLE || "Caravan Collection";
+    if (subtitleEl) subtitleEl.textContent = CARAVAN_SHOWCASE.SUBTITLE || "Our premium caravan experiences.";
+
+    if (videoTitleEl) videoTitleEl.textContent = CARAVAN_SHOWCASE.VIDEO?.title || "Caravan Walkthrough";
+    if (videoDescriptionEl) videoDescriptionEl.textContent = CARAVAN_SHOWCASE.VIDEO?.description || "Watch our featured caravan video.";
+
+    if (videoEl && videoSourceEl) {
+      const videoSrc = CARAVAN_SHOWCASE.VIDEO?.src || "";
+      const videoPoster = CARAVAN_SHOWCASE.VIDEO?.poster || "";
+
+      videoSourceEl.src = videoSrc;
+      if (videoPoster) videoEl.setAttribute("poster", videoPoster);
+      videoEl.load();
+
+      videoEl.addEventListener("error", () => {
+        if (videoFallbackEl) videoFallbackEl.classList.remove("hidden");
+      });
+    }
+
+    if (photoGridEl && Array.isArray(CARAVAN_SHOWCASE.PHOTOS)) {
+      let photoHtml = "";
+      CARAVAN_SHOWCASE.PHOTOS.forEach((photo) => {
+        photoHtml += `
+          <article class="caravan-photo-card" role="button" tabindex="0" aria-label="Open ${photo.title || "Caravan image"}">
+            <img src="${photo.src}" alt="${photo.alt}" class="caravan-photo-image" loading="lazy" decoding="async" width="1600" height="900">
+            <div class="caravan-photo-overlay">
+              <h4 class="text-lg font-bold text-yellow-400">${photo.title}</h4>
+              <p class="text-sm text-gray-200 mt-1">${photo.details}</p>
+            </div>
+          </article>`;
+      });
+      photoGridEl.innerHTML = photoHtml;
+    }
+  };
+
   // 2. Populate Contact Info from Constants
   const populateContactInfo = () => {
     const { CONTACT } = AppConstants;
@@ -83,6 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // --- INITIALIZE DYNAMIC CONTENT & FEATURES ---
   generateGallery();
+  generateCaravanShowcase();
   populateContactInfo();
 
   // --- DYNAMIC SECTION HEIGHT ---
@@ -217,13 +267,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const modalImg = document.getElementById("modal-img");
     const downloadLink = document.getElementById("download-link");
     const closeModalBtn = document.getElementById("close-modal");
-    const galleryItems = document.querySelectorAll(".gallery-item");
+    const galleryItems = document.querySelectorAll(".gallery-item, .caravan-photo-card");
     let objectUrl = null; // This will hold the temporary URL
 
-    galleryItems.forEach((item) => {
-      item.addEventListener("click", () => {
-        const imgSrc = item.querySelector("img").src;
-        const imgAlt = item.querySelector("img").alt;
+    const openImageInModal = (item) => {
+        const targetImage = item.querySelector("img");
+        if (!targetImage) return;
+        const imgSrc = targetImage.src;
+        const imgAlt = targetImage.alt;
 
         modalImg.src = imgSrc;
         modalImg.alt = imgAlt;
@@ -242,6 +293,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         modal.classList.add("show");
         document.body.style.overflow = "hidden";
+    };
+
+    galleryItems.forEach((item) => {
+      item.addEventListener("click", () => openImageInModal(item));
+      item.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openImageInModal(item);
+        }
       });
     });
 

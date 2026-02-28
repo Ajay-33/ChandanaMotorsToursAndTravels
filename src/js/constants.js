@@ -9,6 +9,42 @@ const AppConstants = {
     TWITTER_URL: "#",
     LINKEDIN_URL: "#",
   },
+  CARAVAN_SHOWCASE: {
+    TITLE: "Caravan Collection",
+    SUBTITLE: "Our main attraction for premium road trips, family getaways, and executive travel.",
+    VIDEO: {
+      src: "images/videos/caravanVideo.mp4",
+      poster: "images/buses/caravan03.webp",
+      title: "CMT Caravan Walkthrough",
+      description: "Take a quick walkthrough of our caravan interiors, comfort features, and travel-ready setup.",
+    },
+    PHOTOS: [
+      {
+        src: "images/buses/caravan01.webp",
+        alt: "CMT Caravan exterior front angle",
+        title: "Bold Exterior Design",
+        details: "Road-ready caravan styling for memorable trips",
+      },
+      {
+        src: "images/buses/caravan02.webp",
+        alt: "CMT Caravan side profile",
+        title: "Spacious Layout",
+        details: "Optimized interior space for comfort on long drives",
+      },
+      {
+        src: "images/buses/caravan04.webp",
+        alt: "CMT Caravan premium interior",
+        title: "Premium Interiors",
+        details: "Comfort-first design with practical amenities",
+      },
+      {
+        src: "images/buses/caravan05.webp",
+        alt: "CMT Caravan lounge and seating setup",
+        title: "Lounge Comfort",
+        details: "Relaxed premium seating for family and group travel",
+      },
+    ],
+  },
 GALLERY_IMAGES: [
   // --- Ashok Leyland 28 Seater AC ---
   {

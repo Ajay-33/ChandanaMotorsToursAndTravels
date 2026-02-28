@@ -4,6 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CMT Travels - Your Journey, Our Priority</title>
+    <meta name="theme-color" content="#1e3a8a">
+    <meta name="description" content="CMT Travels offers luxury buses, caravan experiences, customized itineraries, and reliable corporate transport services.">
+
+    <!-- Favicons / Site icons (important for Chrome & Google Search results) -->
+    <link rel="icon" type="image/x-icon" href="/images/logos/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/logos/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/logos/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/logos/apple-touch-icon.png">
+    <link rel="manifest" href="/images/logos/site.webmanifest">
+
+    <!-- Organization schema to reinforce brand logo in search contexts -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "CMT Travels",
+        "url": "https://chandana-motors-tours-and-travels.vercel.app",
+        "logo": "https://chandana-motors-tours-and-travels.vercel.app/images/logos/logo.png"
+      }
+    </script>
+
     <!-- Preconnect to CDN origins for faster resource resolution -->
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -30,6 +51,7 @@
             <ul class="hidden md:flex md:mr-6 space-x-8 text-lg nav-links">
                 <li><a href="#home" class="nav-link hover:text-yellow-300 transition-colors duration-300">Home<span class="underline-span"></span></a></li>
                 <li><a href="#about" class="nav-link hover:text-yellow-300 transition-colors duration-300">About Us<span class="underline-span"></span></a></li>
+                <li><a href="#caravan" class="nav-link hover:text-yellow-300 transition-colors duration-300">Caravan<span class="underline-span"></span></a></li>
                 <li><a href="#gallery" class="nav-link hover:text-yellow-300 transition-colors duration-300">Gallery<span class="underline-span"></span></a></li>
                 <li><a href="#services" class="nav-link hover:text-yellow-300 transition-colors duration-300">Services<span class="underline-span"></span></a></li>
                 <li><a href="#contact" class="nav-link hover:text-yellow-300 transition-colors duration-300">Contact Us<span class="underline-span"></span></a></li>
@@ -104,6 +126,39 @@
             </div>
         </section>
 
+        <section id="caravan" class="caravan-section py-20 px-6 md:px-12 bg-gradient-to-br from-indigo-900 via-blue-900 to-blue-800 text-white">
+            <div class="max-w-7xl mx-auto w-full">
+                <div class="text-center mb-12 fade-in">
+                    <p class="uppercase tracking-[0.25em] text-yellow-300 text-sm sm:text-base mb-4">Main Attraction</p>
+                    <h2 id="caravan-title" class="text-4xl sm:text-5xl font-extrabold text-yellow-400 mb-4">Caravan Collection</h2>
+                    <p id="caravan-subtitle" class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">Experience our latest premium caravan lineup built for unforgettable road journeys.</p>
+                </div>
+
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-10 items-start">
+                    <div class="caravan-video-card fade-in" style="transition-delay: 0.1s;">
+                        <div class="caravan-video-headline">
+                            <h3 id="caravan-video-title" class="text-center text-2xl font-bold text-yellow-400">Caravan Walkthrough</h3>
+                            <p id="caravan-video-description" class="text-center text-gray-300">Watch our featured caravan video.</p>
+                        </div>
+                        <div class="caravan-video-frame">
+                            <video id="caravan-video" class="caravan-video-player" controls preload="metadata" poster="images/buses/Interior.webp">
+                                <source id="caravan-video-source" src="" type="video/mp4">
+                                Your browser does not support HTML5 video playback.
+                            </video>
+                        </div>
+                        <p id="caravan-video-fallback" class="hidden text-sm text-yellow-300 mt-3">Video is coming soon. Please add the caravan video file to enable playback.</p>
+                    </div>
+
+                    <div>
+                        <div id="caravan-photo-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 gap-6 lg:gap-8 fade-in" style="transition-delay: 0.2s;"></div>
+                        <div class="mt-8 fade-in" style="transition-delay: 0.25s;">
+                            <a href="#contact" class="inline-block bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors duration-300">Book Caravan Experience</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="gallery" class="min-h-dynamic py-20 px-6 md:px-12 bg-gradient-to-br from-blue-800 via-blue-900 to-indigo-800 text-white">
             <div class="sm:max-w-screen-2xl max-w-sm mx-auto text-center overflow-hidden">
                 <h2 class="text-4xl sm:text-5xl font-extrabold text-yellow-400 mb-6 fade-in">Explore Our Luxury Fleet</h2>
@@ -130,7 +185,7 @@
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-yellow-400 text-center mb-4 fade-in">Our Premium Services
                 </h2>
                 <p class="text-lg sm:text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto fade-in">Experience the difference
-                    with our exceptional travel solutions</p>
+                    with our exceptional travel solutions, including premium caravan experiences.</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
                     <div class="group bg-blue-800 rounded-xl p-6 sm:p-8 shadow-2xl hover:bg-blue-700 transition-all duration-500 fade-in transform hover:-translate-y-3 hover:shadow-2xl">
@@ -169,7 +224,7 @@
                                 <i class="fas fa-map-marked-alt fa-2x"></i>
                             </div>
                             <div>
-                                <h3 class="text-xl sm:text-2xl font-semibold mb-2 text-yellow-400">Customized Itineraries</h3>
+                                <h3 class="text-xl sm:text-2xl font-semibold mb-2 text-yellow-400">Customized Itineraries & Caravan Trips</h3>
                                 <div class="flex items-center">
                                     <div class="flex text-yellow-400 mr-2">
                                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
@@ -178,11 +233,12 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="text-base sm:text-lg text-gray-200 mb-6">Tailored travel plans for corporate events, weddings, or family vacations.</p>
+                        <p class="text-base sm:text-lg text-gray-200 mb-6">Tailored travel plans for corporate events, weddings, family vacations, and caravan road journeys.</p>
                         <ul class="space-y-3 mb-8 text-sm sm:text-base">
                             <li class="flex items-center text-gray-300"><i class="fas fa-check-circle text-yellow-400 mr-3"></i><span>Personalized route planning</span></li>
                             <li class="flex items-center text-gray-300"><i class="fas fa-check-circle text-yellow-400 mr-3"></i><span>Multiple destination options</span></li>
                             <li class="flex items-center text-gray-300"><i class="fas fa-check-circle text-yellow-400 mr-3"></i><span>Flexible scheduling</span></li>
+                            <li class="flex items-center text-gray-300"><i class="fas fa-check-circle text-yellow-400 mr-3"></i><span>Caravan-ready weekend and long-drive plans</span></li>
                         </ul>
                         <div class="flex justify-between items-center">
                             <a href="#contact" class="group bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-semibold flex items-center transform transition duration-300 ease-in-out hover:bg-yellow-500 hover:scale-105">
@@ -411,6 +467,10 @@
                         <span class="text-gray-300">Customized Itineraries</span>
                     </li>
                     <li class="flex items-center">
+                        <i class="fas fa-campground text-yellow-400 w-5 mr-3"></i>
+                        <span class="text-gray-300">Caravan Experiences</span>
+                    </li>
+                    <li class="flex items-center">
                         <i class="fas fa-briefcase text-yellow-400 w-5 mr-3"></i>
                         <span class="text-gray-300">Corporate Travel</span>
                     </li>
@@ -485,6 +545,7 @@
             <ul class="flex flex-col items-center text-center space-y-8">
                 <li><a href="#home" class="nav-link mobile-nav-link text-3xl font-semibold">Home<span class="underline-span"></span></a></li>
                 <li><a href="#about" class="nav-link mobile-nav-link text-3xl font-semibold">About Us<span class="underline-span"></span></a></li>
+                <li><a href="#caravan" class="nav-link mobile-nav-link text-3xl font-semibold">Caravan<span class="underline-span"></span></a></li>
                 <li><a href="#gallery" class="nav-link mobile-nav-link text-3xl font-semibold">Gallery<span class="underline-span"></span></a></li>
                 <li><a href="#services" class="nav-link mobile-nav-link text-3xl font-semibold">Services<span class="underline-span"></span></a></li>
                 <li><a href="#contact" class="nav-link mobile-nav-link text-3xl font-semibold">Contact Us<span class="underline-span"></span></a></li>
