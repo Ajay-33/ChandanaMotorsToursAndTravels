@@ -48,22 +48,28 @@ const AppConstants = {
 GALLERY_IMAGES: [
   // --- Ashok Leyland 28 Seater AC ---
   {
-    src: "images/buses/ashokleyland28seaterac.webp",
-    alt: "Ashok Leyland 28 Seater AC Bus",
+    src: "images/buses/ashokleyland28seaterac-front.webp",
+    alt: "Front view of Ashok Leyland 28 Seater AC",
     title: "Ashok Leyland 28 Seater",
     details: "AC • Comfortable Seating • Ideal for Tours",
   },
   {
-    src: "images/buses/ashokleyland28seaterseatsac-interiorfrontview.webp",
-    alt: "Interior front view of Ashok Leyland 28 Seater AC",
-    title: "Comfortable Interior",
-    details: "Well-spaced seats with ample legroom",
+    src: "images/buses/ashokleyland28seaterac-side.webp",
+    alt: "Side profile of Ashok Leyland 28 Seater AC",
+    title: "Side Profile",
+    details: "Streamlined design with tour-ready comfort",
   },
   {
-    src: "images/buses/ashokleyland28seaterseatsac-interiorbackview.webp",
-    alt: "Interior back view of Ashok Leyland 28 Seater AC",
-    title: "Spacious Seating",
-    details: "Designed for relaxed long journeys",
+    src: "images/buses/ashokleyland28seaterac-back.webp",
+    alt: "Rear view of Ashok Leyland 28 Seater AC",
+    title: "Rear View",
+    details: "Stable build for long-distance trips",
+  },
+  {
+    src: "images/buses/ashokleyland28seaterac-interior.webp",
+    alt: "Interior of Ashok Leyland 28 Seater AC",
+    title: "Comfortable Interior",
+    details: "Well-spaced seats with ample legroom",
   },
   {
     src: "images/buses/ashokleyland28seaterac-door.webp",
@@ -74,16 +80,48 @@ GALLERY_IMAGES: [
 
   // --- Ashok Leyland 40 Seater AC ---
   {
-    src: "images/buses/ashokleyalnd40seaterac.webp",
-    alt: "Ashok Leyland 40 Seater AC Bus",
+    src: "images/buses/ashokleyland40seaterac-front.webp",
+    alt: "Front view of Ashok Leyland 40 Seater AC",
     title: "Ashok Leyland 40 Seater",
     details: "AC • High Capacity • Smooth Ride",
+  },
+  {
+    src: "images/buses/ashokleyland40seaterac-side.webp",
+    alt: "Side profile of Ashok Leyland 40 Seater AC",
+    title: "Smart Exterior",
+    details: "Sleek body with dependable performance",
   },
   {
     src: "images/buses/ashokleyland40seaterac-interior.webp",
     alt: "Interior of Ashok Leyland 40 Seater AC",
     title: "Spacious Cabin",
     details: "Comfort-focused seating layout",
+  },
+
+  // --- Ashok Leyland 40 Seater (Non-AC) ---
+  {
+    src: "images/buses/ashokleyland40seater-front.webp",
+    alt: "Front view of Ashok Leyland 40 Seater",
+    title: "Ashok Leyland 40 Seater",
+    details: "Reliable capacity for group travel",
+  },
+  {
+    src: "images/buses/ashokleyland40seater-back.webp",
+    alt: "Rear view of Ashok Leyland 40 Seater",
+    title: "Durable Build",
+    details: "Sturdy design for daily operations",
+  },
+  {
+    src: "images/buses/ashokleyland40seater-interiorfront.webp",
+    alt: "Front interior of Ashok Leyland 40 Seater",
+    title: "Practical Interior",
+    details: "Comfortable layout for daily routes",
+  },
+  {
+    src: "images/buses/ashokleyland40seater-interiorback.webp",
+    alt: "Back interior of Ashok Leyland 40 Seater",
+    title: "Wide Seating",
+    details: "Ample space for passengers",
   },
 
   // --- Ashok Leyland 40 Seater Staff Bus ---
@@ -180,6 +218,26 @@ GALLERY_IMAGES: [
     alt: "Interior of SML Executive Coach",
     title: "Luxury Interior",
     details: "Reclining seats with extra comfort",
+  },
+
+  // --- Additional Coach Images ---
+  {
+    src: "images/buses/Interior.webp",
+    alt: "Luxury coach interior view",
+    title: "Coach Interior",
+    details: "Clean and comfortable seating layout",
+  },
+  {
+    src: "images/buses/Type4.webp",
+    alt: "Tour bus exterior Type 4",
+    title: "Tour Bus Type 4",
+    details: "Reliable coach for group tours",
+  },
+  {
+    src: "images/buses/Type5.webp",
+    alt: "Tour bus exterior Type 5",
+    title: "Tour Bus Type 5",
+    details: "Spacious coach option for large groups",
   },
 ],
 
