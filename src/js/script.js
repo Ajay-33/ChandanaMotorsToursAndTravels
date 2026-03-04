@@ -268,8 +268,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const downloadLink = document.getElementById("download-link");
     const closeModalBtn = document.getElementById("close-modal");
     const galleryItems = document.querySelectorAll(".gallery-item, .caravan-photo-card");
-    let objectUrl = null; // This will hold the temporary URL
-
     const openImageInModal = (item) => {
         const targetImage = item.querySelector("img");
         if (!targetImage) return;
@@ -279,17 +277,8 @@ document.addEventListener("DOMContentLoaded", function () {
         modalImg.src = imgSrc;
         modalImg.alt = imgAlt;
 
-        downloadLink.href = '#';
-
-        fetch(imgSrc)
-          .then(response => response.blob())
-          .then(blob => {
-            objectUrl = URL.createObjectURL(blob);
-
-            downloadLink.href = objectUrl;
-            downloadLink.download = `CMT_Travels-${imgAlt.toLowerCase().replace(/\s+/g, "-")}.jpg`;
-          })
-          .catch(e => console.error("Could not create download link:", e));
+        downloadLink.href = imgSrc;
+        downloadLink.download = `CMT_Travels-${imgAlt.toLowerCase().replace(/\s+/g, "-")}.jpg`;
 
         modal.classList.add("show");
         document.body.style.overflow = "hidden";
@@ -309,10 +298,6 @@ document.addEventListener("DOMContentLoaded", function () {
       modal.classList.remove("show");
       document.body.style.overflow = "";
 
-      if (objectUrl) {
-        URL.revokeObjectURL(objectUrl);
-        objectUrl = null;
-      }
     };
 
     closeModalBtn.addEventListener("click", closeModal);
